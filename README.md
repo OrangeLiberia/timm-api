@@ -6,6 +6,18 @@
 
 This repository contains the full documentation for the **TIMM (Telecom Integration & Merchant Management) API** system — Orange Liberia's REST-based API platform for subscriber management, merchant operations, agent services, and more.
 
+## 🚀 Quick Start
+
+### Interactive Explorer
+
+Open [`api_explorer.html`](https://orangeliberia.github.io/timm-api/api_explorer.html) in any browser to:
+- Browse all 211 APIs grouped by category
+- Search APIs by name
+- Fill in parameters interactively
+- Generate `curl` commands instantly
+- View mock success & error responses
+- Switch between Production and Dev/Test environments
+
 ---
 
 ## 📁 Repository Structure
@@ -27,18 +39,6 @@ This repository contains the full documentation for the **TIMM (Telecom Integrat
 ```
 
 ---
-
-## 🚀 Quick Start
-
-### Interactive Explorer
-
-Open `api_explorer.html` in any browser to:
-- Browse all 211 APIs grouped by category
-- Search APIs by name
-- Fill in parameters interactively
-- Generate `curl` commands instantly
-- View mock success & error responses
-- Switch between Production and Dev/Test environments
 
 ### Environments
 
