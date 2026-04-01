@@ -65,13 +65,16 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 | Code | Description |
 |------|-------------|
-| `>= 0` | Success (positive = warnings) |
-| `-10` | System Exception / Body Parse Failed |
-| `-11` | API does not exist |
-| `-12` | Authorization failed |
-| `-13` | Missing required parameter |
-| `-100` | Subscriber Blocked / Not found |
-| `-200` | Network Element error |
+| `100` | Success |
+| `200` | Success With Warning |
+| `-1003` | API Call is missing a parameter |
+| `-1004` | API Call execution failed |
+| `-1005` | API Call execution partial failed |
+| `-1110` | Invalid PIN |
+| `-1111` | Invalid PIN for Technical Wallet |
+| `-1115` | API Call parameter is invalid |
+| `-1116` | Missing Configurations |
+| `-2000` | General Error / Execution Error|
 
 ## cURL Examples
 

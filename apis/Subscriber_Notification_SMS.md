@@ -31,8 +31,13 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ## Request Parameters
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
+| JSON Object	| auth |
+|-------------|----------|
+
+| JSON Object	| param  | | |
+|-------------|----------| ---------- | ---------- | 
+| Parameter Name | Data Type	| Required |	Description |
+| MSISDN |	String |	Mandatory |	Phone Number on whose account you want to remove the Ring Back Tone. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx  Or  23177xxxxxxx. Or, if pseudonymization is enabled for the connection, encrypted X-MSISDN header can be passed in directly. |
 | `SENDERID` | `String` | ⬜ Optional | SMS Sender ID of the user sending the SMS. If not passed in default configured SenderID will be used |
 | `SMS` | `String` | ✅ Required | SMS Text to be sent to the subscriber |
 
@@ -52,7 +57,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 **Success Response (`exec_code: 0`):**
 ```json
 {
-  "exec_code": 0,
+  "exec_code": 200,
   "exec_msg": "Success",
   "resultset": {
     "id": 1,
@@ -61,25 +66,33 @@ Authentication credentials must be provided on every request, either as a JSON `
 }
 ```
 
-**Error Response:**
+### POST — Sends multiple subscribers an SMS
 ```json
 {
-  "exec_code": -12,
-  "exec_msg": "Authorization failed"
+  "exec_code": 200,
+  "exec_msg": "Success",
+  "resultset": {
+    "id": 1,
+    "msisdn": ["0777777588", "0777777599", "0777777100"....]
+  }
 }
 ```
+
 
 ## Error Codes
 
 | Code | Description |
 |------|-------------|
-| `>= 0` | Success (positive = warnings) |
-| `-10` | System Exception / Body Parse Failed |
-| `-11` | API does not exist |
-| `-12` | Authorization failed |
-| `-13` | Missing required parameter |
-| `-100` | Subscriber Blocked / Not found |
-| `-200` | Network Element error |
+| `100` | Success |
+| `200` | Success With Warning |
+| `-1003` | API Call is missing a parameter |
+| `-1004` | API Call execution failed |
+| `-1005` | API Call execution partial failed |
+| `-1110` | Invalid PIN |
+| `-1111` | Invalid PIN for Technical Wallet |
+| `-1115` | API Call parameter is invalid |
+| `-1116` | Missing Configurations |
+| `-2000` | General Error / Execution Error|
 
 ## cURL Examples
 
