@@ -58,11 +58,11 @@ Authentication credentials must be provided on every request, either as a JSON `
 **Success Response (`exec_code: 0`):**
 ```json
 {
-  "exec_code": 0,
+  "exec_code": 200,
   "exec_msg": "Success",
   "resultset": {
-    "trxid": "sample_trxid",
-    "intrxid": "sample_intrxid"
+    "trxid": "CI121313.1121.C00002",
+    "intrxid": "CI121313.1121.B12342"
   }
 }
 ```
