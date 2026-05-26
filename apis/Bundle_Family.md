@@ -72,8 +72,8 @@ TIMM/v1/Bundle/Family
 **Error Response:**
 ```json
 {
-  "exec_code": -12,
-  "exec_msg": "Authorization failed"
+  "exec_code": -1004,
+  "exec_msg": "Execution failed"
 }
 ```
 
@@ -164,8 +164,8 @@ TIMM/v1/Bundle/Family
 **Error Response:**
 ```json
 {
-  "exec_code": -12,
-  "exec_msg": "Authorization failed"
+  "exec_code": -1004,
+  "exec_msg": "Execution failed"
 }
 ```
 
@@ -293,8 +293,8 @@ TIMM/v1/Bundle/Family
 **Error Response:**
 ```json
 {
-  "exec_code": -12,
-  "exec_msg": "Authorization failed"
+  "exec_code": -1004,
+  "exec_msg": "Execution failed"
 }
 ```
 
@@ -362,8 +362,8 @@ TIMM/v1/Bundle/Family
 **Error Response:**
 ```json
 {
-  "exec_code": -12,
-  "exec_msg": "Authorization failed"
+  "exec_code": -1004,
+  "exec_msg": "Execution failed"
 }
 ```
 
@@ -390,8 +390,8 @@ curl -k -X DELETE \
 
 | Code | Description |
 |------|-------------|
-| `100` | Success |
-| `200` | Success With Warning |
+| `100` | Success With Warning |
+| `200` | Success |
 | `-1003` | API Call is missing a parameter |
 | `-1004` | API Call execution failed |
 | `-1005` | API Call execution partial failed |

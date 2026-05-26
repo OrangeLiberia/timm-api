@@ -6,7 +6,7 @@ This method will allows to obtain the details of a subscriber on Taxes system.
 
 | HTTP Verb | Description |
 |-----------|-------------|
-| `GET` | Allows for a Subscriber to get the Tax information |
+| `POST` | Allows for a Subscriber to get the Tax information |
 
 ## Endpoint URL
 
@@ -29,17 +29,58 @@ Authentication credentials must be provided on every request, either as a JSON `
 {"auth": {"user": "<username>", "pwd": "<password>"}}
 ```
 
-## Mock Responses
+## Request Parameters
 
-### GET — Allows for a Subscriber to get the Tax information
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `BILLID` | `String` | ✅ Required | Unique BillId tax account number that the taxes is being payed |
+| `CURRENCY` | `EnumString` | ✅ Required | Currency code used to query the tax bill: USD, LRD |
 
-**Success Response (`exec_code: 0`):**
+## Response Fields
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `exec_code` | `Integer` | Execution code |
+| `exec_msg` | `String` | Execution message |
+| `resultset` | `Object` | Object containing Taxes account information |
+| `resultset.ExecTxt` | `String` | Execution text returned by Taxes system |
+| `resultset.TIN` | `String` | Tax identification number |
+| `resultset.NAME` | `String` | Subscriber name |
+| `resultset.BILLNUMBER` | `String` | Bill number |
+| `resultset.AMOUNT_TO_PAY` | `String` | Amount to pay |
+| `resultset.CURRENCY` | `String` | Currency code |
+| `resultset.RATE_EXCHANGE` | `String` | Rate exchange |
+| `resultset.DETAILBILL` | `Array` | List of bill details |
+| `resultset.DETAILBILL[].TAXCODE` | `String` | Tax code |
+| `resultset.DETAILBILL[].DESC` | `String` | Tax description |
+| `resultset.DETAILBILL[].AMOUNT` | `String` | Amount |
+| `resultset.DETAILBILL[].AMOUNT_CH` | `String` | Charged amount |
+
+## Responses
+
+### POST — Allows for a Subscriber to get the Tax information
+
+**Success Response (`exec_code: 200`):**
 ```json
 {
-  "exec_code": 0,
+  "exec_code": 200,
   "exec_msg": "Success",
   "resultset": {
-    "actionid": "ACT-20241107-001234"
+    "ExecTxt": " Bill found",
+    "TIN": " ",
+    "NAME": "LAMINE Y KROMAH  ",
+    "BILLNUMBER": "1003559",
+    "AMOUNT_TO_PAY": "40",
+    "CURRENCY": "USD",
+    "RATE_EXCHANGE": "182.900000",
+    "DETAILBILL": [
+      {
+        "TAXCODE": "079",
+        "DESC": "MFA- ECOWAS PASSPORT FEE MFA - ECOWAS PASSPORT FEE",
+        "AMOUNT": "40",
+        "AMOUNT_CH": "7316"
+      }
+    ]
   }
 }
 ```
@@ -47,8 +88,8 @@ Authentication credentials must be provided on every request, either as a JSON `
 **Error Response:**
 ```json
 {
-  "exec_code": -12,
-  "exec_msg": "Authorization failed"
+  "exec_code": -1004,
+  "exec_msg": " Bill not found"
 }
 ```
 
@@ -56,8 +97,8 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 | Code | Description |
 |------|-------------|
-| `100` | Success |
-| `200` | Success With Warning |
+| `100` | Success With Warning |
+| `200` | Success |
 | `-1003` | API Call is missing a parameter |
 | `-1004` | API Call execution failed |
 | `-1005` | API Call execution partial failed |
@@ -69,9 +110,20 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ## cURL Examples
 
-### GET — Allows for a Subscriber to get the Tax information
+### POST — Allows for a Subscriber to get the Tax information
 
 ```bash
-curl -k -X GET \
-  "https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/Taxes/Account?auth:user=api_user&auth:pwd=api_password"
+curl -k -X POST \
+  "https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/Taxes/Account" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "auth": {
+    "user": "api_user",
+    "pwd": "api_password"
+  },
+  "param": {
+    "BILLID": "1003559",
+    "CURRENCY": "USD"
+  }
+}'
 ```

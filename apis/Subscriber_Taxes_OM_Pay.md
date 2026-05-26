@@ -1,6 +1,6 @@
 # Subscriber/Taxes/OM/Pay
 
-This method will allow a subscriber to pay for it’s taxes using his Orange Money account.
+This method will allow a subscriber to pay for its taxes using his Orange Money account.
 
 ## Action Definition
 
@@ -33,25 +33,38 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `MSISDN` | `String` | ✅ Required | Payer Phone Number on whose account the money should be deducted. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx Or, if pseudonymization is enabled for the connection, encrypted X-MSISDN header can be passed in directly. |
-| `Currency` | `String` | ✅ Required | Identification of Wallet being charged: - |
-| `BillId` | `String` | ✅ Required | Unique BillId tax account number that the taxes is being payed |
-| `ExternalID` | `String` | ⬜ Optional | Reference’s to unique id of the caller transaction Payer’s PIN |
+| `BILLID` | `String` | ✅ Required | Unique BillId tax account number that the taxes is being payed |
+| `CURRENCY` | `EnumString` | ✅ Required | Identification of Wallet currency being charged: USD, LRD |
+| `MSISDN` | `String` | ✅ Required | Payer Phone Number on whose account the money should be deducted aka cashedout. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx Or, if pseudonymization is enabled for the connection, encrypted XMSISDN header can be passed in directly |
+| `AMOUNT` | `Decimal` | ✅ Required | Amount to be charged to Subscriber |
+| `PAYERPIN` | `String` | ✅ Required | Payer's PIN |
 
-## Mock Responses
+## Response Fields
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `exec_code` | `Integer` | Execution code |
+| `exec_msg` | `String` | Execution message |
+| `resultset` | `Object` | Object containing Taxes payment information |
+| `resultset.TXNID` | `String` | Transaction ID |
+| `resultset.RECEIPTNO` | `String` | Receipt number |
+| `resultset.BANKTRXID` | `String` | Bank transaction ID |
+| `resultset.ExecTxt` | `String` | Execution text returned by Taxes system |
+
+## Responses
 
 ### POST — Allows for a Subscriber to Pay for Taxes
 
-**Success Response (`exec_code: 0`):**
+**Success Response (`exec_code: 200`):**
 ```json
 {
-  "exec_code": 0,
+  "exec_code": 200,
   "exec_msg": "Success",
   "resultset": {
-    "transactionid": "TXN20241107123456",
-    "status": "Completed",
-    "amount": "100.00",
-    "currency": "LRD"
+    "TXNID": "MP260525.1036.B32643",
+    "RECEIPTNO": "1870429",
+    "BANKTRXID": "13MP260525.1036.B32643",
+    "ExecTxt": "success"
   }
 }
 ```
@@ -59,8 +72,8 @@ Authentication credentials must be provided on every request, either as a JSON `
 **Error Response:**
 ```json
 {
-  "exec_code": -12,
-  "exec_msg": "Authorization failed"
+  "exec_code": -1004,
+  "exec_msg": "Execution failed"
 }
 ```
 
@@ -68,8 +81,8 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 | Code | Description |
 |------|-------------|
-| `100` | Success |
-| `200` | Success With Warning |
+| `100` | Success With Warning |
+| `200` | Success |
 | `-1003` | API Call is missing a parameter |
 | `-1004` | API Call execution failed |
 | `-1005` | API Call execution partial failed |
@@ -93,10 +106,11 @@ curl -k -X POST \
     "pwd": "api_password"
   },
   "param": {
-    "MSISDN": "0777777588",
-    "Currency": "LRD",
-    "BillId": "ID-001234",
-    "ExternalID": "ID-001234"
+    "BILLID": "1003558",
+    "CURRENCY": "LRD",
+    "MSISDN": "0776487613",
+    "AMOUNT": "500.00",
+    "PAYERPIN": "<PAYERPIN>"
   }
 }'
 ```
