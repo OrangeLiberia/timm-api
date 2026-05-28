@@ -11,11 +11,11 @@ This repository contains the full documentation for the **TIMM (Telecom Integrat
 ### Interactive Explorer
 
 Open [`api_explorer.html`](https://orangeliberia.github.io/timm-api/api_explorer.html) in any browser to:
-- Browse all 211 APIs grouped by category
+- Browse all 217 APIs grouped by category
 - Search APIs by name
 - Fill in parameters interactively
 - Generate `curl` commands instantly
-- View mock success & error responses
+- View success & error responses
 - Switch between Production and Dev/Test environments
 
 ---
@@ -35,7 +35,7 @@ Open [`api_explorer.html`](https://orangeliberia.github.io/timm-api/api_explorer
 └── apis/
     ├── Authenticate_API_Token.md
     ├── PRV_Features_CallerRingBackTone.md
-    ├── ... (211 API files total)
+    ├── ... (217 API files total)
 ```
 
 ---
@@ -75,7 +75,8 @@ Every API call requires authentication credentials, provided via one of these me
 | `PRV` | Provisioning — network features, access, packages | 8 |
 | `Resource` | SIM and MSISDN status | 2 |
 | `COMMON` | Currency utilities | 2 |
-| `CRM` | Subscriber registration, KYC, management | 18 |
+| `BlinkSky` | BlinkSky catalog and payment services | 2 |
+| `CRM` | Subscriber registration, KYC, management | 20 |
 | `Merchant` | Merchant balance, payments, bundles, utilities | 35 |
 | `Agent` | Agent operations and services | 20 |
 | `Subscriber` | Subscriber self-service operations | 70+ |
@@ -84,6 +85,7 @@ Every API call requires authentication credentials, provided via one of these me
 | `DSTV` | DSTV customer services | 4 |
 | `Satcon` | Satcon utilities | 4 |
 | `OSE` / `SCHFEES` | School fees and accounts | 8 |
+| `JungleEnergy` | JungleEnergy account and payment services | 2 |
 | `DSTK` | Subscriber push notifications | 1 |
 | `FlyTxt` | Inbound offers | 1 |
 | `Poll` | Polling and voting | 4 |
@@ -124,11 +126,12 @@ All APIs return a JSON response with the following base structure:
 
 | Code | Meaning |
 |------|---------|
-| `>= 0` | Success (positive values = warnings) |
-| `-10` | System Exception / Body Parse Failed |
-| `-11` | API does not exist |
-| `-12` | Authorization failed |
-| `-13` | Missing required parameter |
+| `100` | Success With Warning |
+| `200` | Success |
+| `-1000` | System Exception / Body Parse Failed |
+| `-1001` | API does not exist |
+| `-1002` | Authorization failed |
+| `-1003` | API Call is missing a parameter |
 | `-100` | Subscriber not found / blocked |
 | `-200` | Network Element error |
 
