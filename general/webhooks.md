@@ -8,6 +8,8 @@ Since the Orange servers need to be able to send data to your application via we
 
 With webhooks, it is important that the URL to send the webhooks to is configured. When there is data available, Orange sends the webhook/callback to your application as an HTTP request. Your application should respond with an HTTP success code to indicate that it successfully received the data.
 
+For SMS and USSD subscriber notifications, see [SMS Subscriber Webhook](sms_subscriber_webhook.md).
+
 The APIs calls listed that are asynchronous by nature those allow a callback object to be specified (object specified bellow), in those cases that a callback object is specified it will override any webhook specification, if any, that’s has been configured for that user.
 
 | JSON Object | callback | | |

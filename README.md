@@ -11,7 +11,7 @@ This repository contains the full documentation for the **TIMM (Telecom Integrat
 ### Interactive Explorer
 
 Open [`api_explorer.html`](https://orangeliberia.github.io/timm-api/api_explorer.html) in any browser to:
-- Browse all 217 APIs grouped by category
+- Browse all 221 APIs grouped by category
 - Search APIs by name
 - Fill in parameters interactively
 - Generate `curl` commands instantly
@@ -31,11 +31,12 @@ Open [`api_explorer.html`](https://orangeliberia.github.io/timm-api/api_explorer
 │   ├── guidelines.md             ← Calling conventions & best practices
 │   ├── authentication.md         ← Auth object documentation
 │   ├── webhooks.md               ← Webhooks & callbacks guide
+│   ├── sms_subscriber_webhook.md ← SMS & USSD subscriber webhook
 │   └── acronyms.md               ← Acronym definitions
 └── apis/
     ├── Authenticate_API_Token.md
     ├── PRV_Features_CallerRingBackTone.md
-    ├── ... (217 API files total)
+    ├── ... (221 API files total)
 ```
 
 ---
@@ -76,7 +77,7 @@ Every API call requires authentication credentials, provided via one of these me
 | `Resource` | SIM and MSISDN status | 2 |
 | `COMMON` | Currency utilities | 2 |
 | `BlinkSky` | BlinkSky catalog and payment services | 2 |
-| `CRM` | Subscriber registration, KYC, management | 20 |
+| `CRM` | Subscriber registration, KYC, management | 24 |
 | `Merchant` | Merchant balance, payments, bundles, utilities | 35 |
 | `Agent` | Agent operations and services | 20 |
 | `Subscriber` | Subscriber self-service operations | 70+ |
@@ -141,6 +142,7 @@ All APIs return a JSON response with the following base structure:
 
 - See `general/guidelines.md` for the `System/Redirect` approach (for environments that don't support HTTP body on GET)
 - See `general/webhooks.md` for async callback configuration
+- See `general/sms_subscriber_webhook.md` for SMS and USSD subscriber webhook notifications
 
 ---
 
