@@ -29,6 +29,12 @@ Authentication credentials must be provided on every request, either as a JSON `
 {"auth": {"user": "<username>", "pwd": "<password>"}}
 ```
 
+## Request Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `MSISDN` | `String` | ✅ Required | Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx. Or, if pseudonymization is enabled for the connection, encrypted X-MSISDN header can be passed in directly |
+
 ## Response Fields
 
 > Result type: **Single Object**
@@ -41,18 +47,22 @@ Authentication credentials must be provided on every request, either as a JSON `
 | `IMSI` | `String` | Subscriber IMSI |
 | `FullName` | `String` | Subscribers full name |
 | `IDCard` | `String` | Identity Card Number IDCardType Enum Identity Card Type |
+| `IDCardType` | `String` | Identity Card Type |
 | `IDCardTypeID` | `Integer` | Identity Card Type ID |
-| `Email` | `String` | e-Mail |
+| `EMail` | `String` | e-Mail |
 | `OtherContact` | `String` | Other Contact |
 | `BirthDate` | `String` | Birth date of the subscriber (YYYY-MM-DD HH:mm:ss) Gender Enum Subscriber gender (Male, Female, Not Aplicable) |
+| `Gender` | `String` | Subscriber gender |
 | `GenderID` | `Integer` | Gender ID |
 | `Address` | `String` | Subscriber Address |
 | `Country` | `String` | Subscriber Country |
 | `SimType` | `String` | Subscriber SIM Type ( 2G, 4G, 5G) |
 | `ProfileID` | `Integer` | Subscriber Profile ID |
 | `ProfileName` | `String` | Subscriber Profile Name |
-| `PrePaid` | `Integer` | 1 – PrePaid , 0 - PostPaid ValidationGSM Int GSM validation value -1-N/A; 100-Valid; 101-No ID; 103-No Photo; 104-No ID and Photo; 105-No Name; 106-ID not Clear; 107-Photo not Clear; 108-Invalid ID; 109-Names does not Match; 110-No Information |
+| `PrePaid` | `Integer` | 1 – PrePaid , 0 - PostPaid |
+| `ValidationGSM` | `Integer` | GSM validation value -1-N/A; 100-Valid; 101-No ID; 103-No Photo; 104-No ID and Photo; 105-No Name; 106-ID not Clear; 107-Photo not Clear; 108-Invalid ID; 109-Names does not Match; 110-No Information |
 | `RegistrationGSMTxt` | `String` | Textual description of the ValidationGSM ValidationOM Int OrangeMoney validation value -1-N/A; 200-Valid; 201-No ID; 202-No Photo; 203-Unreadable ID; 204Invalid ID; 205-Conflict of identity (Form/ID); 206-No Contract; 207Unreadable Contract; 208-Unsigned Contract; 209-Contract information does not match; 210-No Orange Money |
+| `ValidationOM` | `Integer` | OrangeMoney validation value -1-N/A; 200-Valid; 201-No ID; 202-No Photo; 203-Unreadable ID; 204Invalid ID; 205-Conflict of identity (Form/ID); 206-No Contract; 207Unreadable Contract; 208-Unsigned Contract; 209-Contract information does not match; 210-No Orange Money |
 | `RegistrationOMTxt` | `String` | Textual description of the ValidationOM |
 | `FinalValidTxt` | `String` | Final evaluation of the registration |
 | `OMLevel` | `String` | KYC Orange Money Level ( Level_1, Level_2, Level_3) |
@@ -62,41 +72,45 @@ Authentication credentials must be provided on every request, either as a JSON `
 | `array of IMG` | `Object` | Enum Type of Image: Face, Doc, Contract |
 | `ImgID` | `Integer` | Image ID Format Enum Format of Image: JPG, PNGImg |
 
-## Mock Responses
+## Responses
 
 ### GET — Returns the Subscriber Registration Status
 
-**Success Response (`exec_code: 0`):**
+**Success Response (`exec_code: 200`):**
 ```json
 {
-  "exec_code": 0,
+  "exec_code": 200,
   "exec_msg": "Success",
   "resultset": {
-    "MSISDN": "0777777588",
-    "ServiceID": 1001,
-    "ICCID": "sample_ICCID",
-    "IMSI": "sample_IMSI",
-    "FullName": "John Doe",
-    "IDCard": "sample_IDCard",
-    "IDCardTypeID": "Standard",
-    "Email": "john.doe@example.com",
-    "OtherContact": "sample_OtherContact",
-    "BirthDate": "2024-11-07T10:30:00",
-    "GenderID": 1,
-    "Address": "sample_Address",
-    "Country": 1,
-    "SimType": "Standard",
-    "ProfileID": 1,
-    "ProfileName": "sample_ProfileName",
-    "PrePaid": 1,
-    "RegistrationGSMTxt": "sample_RegistrationGSMTxt",
-    "RegistrationOMTxt": "sample_RegistrationOMTxt",
-    "FinalValidTxt": "sample_FinalValidTxt",
-    "OMLevel": "sample_OMLevel",
-    "OMLevelTxt": "sample_OMLevelTxt",
-    "Status": "Active",
-    "array of IMG": "sample_array of IMG",
-    "ImgID": 1
+    "Address": "Haile Selassie Avenue,Capital Byepass, Monrovia",
+    "BirthDate": "1983-06-24 05:18:00.000",
+    "Country": "Liberia",
+    "EMail": "orange.lbr@orange.com",
+    "FinalValidTxt": "Valid",
+    "FullName": "Ian Ogutu",
+    "Gender": "Not Aplicable",
+    "GenderID": "1",
+    "ICCID": "892310701009806538",
+    "IDCard": "500002043",
+    "IDCardType": "Business TIN",
+    "IDCardTypeID": "10",
+    "IMSI": "618070100980653",
+    "MSISDN": "0778888501",
+    "OMLevel": "-1",
+    "OMLevelTxt": "N/A",
+    "OtherContact": "0",
+    "PrePaid": "1",
+    "ProfileID": "239",
+    "ProfileName": "USD Prepaid with OrangeMoney",
+    "RegistrationGSMTxt": "Valid",
+    "RegistrationOMTxt": "N/A",
+    "ServiceID": "1011122691702",
+    "SimType": "4G",
+    "Status": "1",
+    "StatusTxt": "Active",
+    "ValidationGSM": "100",
+    "ValidationOM": "-1",
+    "document": ""
   }
 }
 ```
@@ -130,5 +144,15 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ```bash
 curl -k -X GET \
-  "https://APIDEV.Orange.com.lr/TIMM/v1/CRM/Subscriber?auth:user=api_user&auth:pwd=api_password"
+  "http://APIDEV.Orange.com.lr/TIMM/v1/CRM/Subscriber" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "auth": {
+    "user": "api_user",
+    "pwd": "api_password"
+  },
+  "param": {
+    "msisdn": "0778888501"
+  }
+}'
 ```
