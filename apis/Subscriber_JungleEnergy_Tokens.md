@@ -1,25 +1,25 @@
-# Subscriber/OrangeEnergy/Tokens
+# Subscriber/JungleEnergy/Tokens
 
-This method allows the Subscriber to see their previous purchased OrangeEnergy tokens.
+This method allows the Subscriber to see their previous purchased JungleEnergy tokens.
 
 ## Action Definition
 
 | HTTP Verb | Description |
 |-----------|-------------|
-| `GET` | List all the subscribers last OrangeEnergy tokens. |
+| `GET` | List all the subscribers last JungleEnergy tokens. |
 
 ## Endpoint URL
 
 ```
-/TIMM/v1/Subscriber/OrangeEnergy/Tokens
+/TIMM/v1/Subscriber/JungleEnergy/Tokens
 ```
 
 ## Environments
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.210:11003/TIMM/v1/Subscriber/OrangeEnergy/Tokens` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/OrangeEnergy/Tokens` |
+| Production | `https://192.168.19.210:11003/TIMM/v1/Subscriber/JungleEnergy/Tokens` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/JungleEnergy/Tokens` |
 
 ## Authentication
 
@@ -49,7 +49,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ## Responses
 
-### GET — List all the subscribers last OrangeEnergy tokens.
+### GET — List all the subscribers last JungleEnergy tokens.
 
 **Success Response (`exec_code: 200`):**
 ```json
@@ -105,12 +105,12 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ```bash
 curl -k -X GET \
-  "https://192.168.19.210:11003/TIMM/v1/Subscriber/OrangeEnergy/Tokens?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0775144471"
+  "https://192.168.19.210:11003/TIMM/v1/Subscriber/JungleEnergy/Tokens?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0775144471"
 ```
 
-### GET — List all the subscribers last OrangeEnergy tokens.
+### GET — List all the subscribers last JungleEnergy tokens.
 
 ```bash
 curl -k -X GET \
-  "https://192.168.19.210:11003/TIMM/v1/Subscriber/OrangeEnergy/Tokens?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0777851990"
+  "https://192.168.19.210:11003/TIMM/v1/Subscriber/JungleEnergy/Tokens?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0777851990"
 ```

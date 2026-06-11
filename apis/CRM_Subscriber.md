@@ -69,6 +69,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 | `OMLevelTxt` | `String` | Textual description of the OMLevel |
 | `PrePaid` | `Integer` | 1 – PrePaid , 0 - PostPaid |
 | `Status` | `String` | Status of the subscriber (Active, Blocked, HotLine and Canceled) JSON Object |
+| `StatusTxt` | `String` | Textual description of the Status |
 | `array of IMG` | `Object` | Enum Type of Image: Face, Doc, Contract |
 | `ImgID` | `Integer` | Image ID Format Enum Format of Image: JPG, PNGImg |
 

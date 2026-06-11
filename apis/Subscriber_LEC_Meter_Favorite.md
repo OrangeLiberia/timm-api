@@ -1,6 +1,6 @@
 # Subscriber/LEC/Meter/Favorite
 
-This method allows the subscriber to add their favorite meter numbers and tie it to an alias. Subscriber is be allowed to add up to 3 favorite meters.
+This method allows the subscriber to add their favorite meter numbers and tie it to an alias. Subscriber is allowed to add up to 3 favorite meters.
 
 ## Action Definition
 
@@ -20,8 +20,8 @@ This method allows the subscriber to add their favorite meter numbers and tie it
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Subscriber/LEC/Meter/Favorite` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Subscriber/LEC/Meter/Favorite` |
+| Production | `https://192.168.19.210:11003/TIMM/v1/Subscriber/LEC/Meter/Favorite` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/LEC/Meter/Favorite` |
 
 ## Authentication
 
@@ -36,9 +36,18 @@ Authentication credentials must be provided on every request, either as a JSON `
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `MSISDN` | `String` | ✅ Required | Phone Number on whose account you want to add the favorite Meter. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx Or, if pseudonymization is enabled for the connection, encrypted XMSISDN header can be passed in directly. |
-| `MeterNumber` | `String` | ✅ Required |  |
+| `MeterNumber` | `String` | Required for `POST` and `DELETE` | Meter number to add or remove from the subscriber favorite meters. |
 
-## Mock Responses
+## Response Fields
+
+> Result type: **Array**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `Meter` | `String` | Favorite meter identifier |
+| `Name` | `String` | Favorite meter alias |
+
+## Responses
 
 ### POST — Allows for a subscriber to add favorite LEC meter numbers.
 
@@ -68,22 +77,33 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ### GET — List all the subscribers favorite LEC meters.
 
-**Success Response (`exec_code: 0`):**
+**Success Response (`exec_code: 203`):**
 ```json
 {
-  "exec_code": 0,
+  "exec_code": 203,
   "exec_msg": "Success",
-  "resultset": {
-    "actionid": "ACT-20241107-001234"
-  }
+  "resultset": [
+    {
+      "Meter": "1",
+      "Name": "500"
+    },
+    {
+      "Meter": "1",
+      "Name": "500"
+    },
+    {
+      "Meter": "1",
+      "Name": "500"
+    }
+  ]
 }
 ```
 
 **Error Response:**
 ```json
 {
-  "exec_code": -1004,
-  "exec_msg": "Execution failed"
+  "exec_code": -200,
+  "exec_msg": "Meter not found"
 }
 ```
 
@@ -93,6 +113,8 @@ Authentication credentials must be provided on every request, either as a JSON `
 |------|-------------|
 | `100` | Success With Warning |
 | `200` | Success |
+| `203` | Success |
+| `-200` | Meter not found |
 | `-1003` | API Call is missing a parameter |
 | `-1004` | API Call execution failed |
 | `-1005` | API Call execution partial failed |
@@ -108,7 +130,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ```bash
 curl -k -X POST \
-  "https://APIDEV.Orange.com.lr//TIMM/v1/Subscriber/LEC/Meter/Favorite" \
+  "https://192.168.19.210:11003/TIMM/v1/Subscriber/LEC/Meter/Favorite" \
   -H "Content-Type: application/json" \
   -d '{
   "auth": {
@@ -126,12 +148,19 @@ curl -k -X POST \
 
 ```bash
 curl -k -X DELETE \
-  "https://APIDEV.Orange.com.lr//TIMM/v1/Subscriber/LEC/Meter/Favorite?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0777777588&param:MeterNumber=<MeterNumber>"
+  "https://192.168.19.210:11003/TIMM/v1/Subscriber/LEC/Meter/Favorite?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0777777588&param:MeterNumber=<MeterNumber>"
+```
+
+### GET — Meter not found
+
+```bash
+curl -k -X GET \
+  "https://192.168.19.210:11003/TIMM/v1/Subscriber/LEC/Meter/Favorite?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0776889895"
 ```
 
 ### GET — List all the subscribers favorite LEC meters.
 
 ```bash
 curl -k -X GET \
-  "https://APIDEV.Orange.com.lr//TIMM/v1/Subscriber/LEC/Meter/Favorite?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0777777588&param:MeterNumber=<MeterNumber>"
+  "https://192.168.19.210:11003/TIMM/v1/Subscriber/LEC/Meter/Favorite?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0776899249"
 ```

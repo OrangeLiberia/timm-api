@@ -1,4 +1,4 @@
-# Subscriber/OrangeEnergy/Meter/Favorite
+# Subscriber/JungleEnergy/Meter/Favorite
 
 This method allows the subscriber to add their favorite meter numbers and tie it to an alias. Subscriber is allowed to add up to 3 favorite meters.
 
@@ -6,22 +6,22 @@ This method allows the subscriber to add their favorite meter numbers and tie it
 
 | HTTP Verb | Description |
 |-----------|-------------|
-| `POST` | Allows for a subscriber to add favorite OrangeEnergy meter numbers. |
-| `DELETE` | Allows for a subscriber to remove a favorite OrangeEnergy meter number. |
-| `GET` | List all the subscribers favorite OrangeEnergy meters. |
+| `POST` | Allows for a subscriber to add favorite JungleEnergy meter numbers. |
+| `DELETE` | Allows for a subscriber to remove a favorite JungleEnergy meter number. |
+| `GET` | List all the subscribers favorite JungleEnergy meters. |
 
 ## Endpoint URL
 
 ```
-/TIMM/v1/Subscriber/OrangeEnergy/Meter/Favorite
+/TIMM/v1/Subscriber/JungleEnergy/Meter/Favorite
 ```
 
 ## Environments
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.210:11003/TIMM/v1/Subscriber/OrangeEnergy/Meter/Favorite` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/OrangeEnergy/Meter/Favorite` |
+| Production | `https://192.168.19.210:11003/TIMM/v1/Subscriber/JungleEnergy/Meter/Favorite` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/JungleEnergy/Meter/Favorite` |
 
 ## Authentication
 
@@ -49,7 +49,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ## Responses
 
-### POST — Allows for a subscriber to add favorite OrangeEnergy meter numbers.
+### POST — Allows for a subscriber to add favorite JungleEnergy meter numbers.
 
 **Success Response (`exec_code: 0`):**
 ```json
@@ -62,7 +62,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 }
 ```
 
-### DELETE — Allows for a subscriber to remove a favorite OrangeEnergy meter number.
+### DELETE — Allows for a subscriber to remove a favorite JungleEnergy meter number.
 
 **Success Response (`exec_code: 0`):**
 ```json
@@ -75,7 +75,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 }
 ```
 
-### GET — List all the subscribers favorite OrangeEnergy meters.
+### GET — List all the subscribers favorite JungleEnergy meters.
 
 **Success Response (`exec_code: 203`):**
 ```json
@@ -126,11 +126,11 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ## cURL Examples
 
-### POST — Allows for a subscriber to add favorite OrangeEnergy meter numbers.
+### POST — Allows for a subscriber to add favorite JungleEnergy meter numbers.
 
 ```bash
 curl -k -X POST \
-  "https://192.168.19.210:11003/TIMM/v1/Subscriber/OrangeEnergy/Meter/Favorite" \
+  "https://192.168.19.210:11003/TIMM/v1/Subscriber/JungleEnergy/Meter/Favorite" \
   -H "Content-Type: application/json" \
   -d '{
   "auth": {
@@ -144,23 +144,23 @@ curl -k -X POST \
 }'
 ```
 
-### DELETE — Allows for a subscriber to remove a favorite OrangeEnergy meter number.
+### DELETE — Allows for a subscriber to remove a favorite JungleEnergy meter number.
 
 ```bash
 curl -k -X DELETE \
-  "https://192.168.19.210:11003/TIMM/v1/Subscriber/OrangeEnergy/Meter/Favorite?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0777777588&param:MeterNumber=<MeterNumber>"
+  "https://192.168.19.210:11003/TIMM/v1/Subscriber/JungleEnergy/Meter/Favorite?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0777777588&param:MeterNumber=<MeterNumber>"
 ```
 
 ### GET — Meter not found
 
 ```bash
 curl -k -X GET \
-  "https://192.168.19.210:11003/TIMM/v1/Subscriber/OrangeEnergy/Meter/Favorite?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0776889895"
+  "https://192.168.19.210:11003/TIMM/v1/Subscriber/JungleEnergy/Meter/Favorite?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0776889895"
 ```
 
-### GET — List all the subscribers favorite OrangeEnergy meters.
+### GET — List all the subscribers favorite JungleEnergy meters.
 
 ```bash
 curl -k -X GET \
-  "https://192.168.19.210:11003/TIMM/v1/Subscriber/OrangeEnergy/Meter/Favorite?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0776899249"
+  "https://192.168.19.210:11003/TIMM/v1/Subscriber/JungleEnergy/Meter/Favorite?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0776899249"
 ```
