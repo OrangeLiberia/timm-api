@@ -44,14 +44,14 @@ Authentication credentials must be provided on every request, either as a JSON `
 |-------|------|-------------|
 | `MSISDN` | `String` | MSISDN |
 | `FullName` | `String` | Subscribers full name Status Enum Status of the subscriber 1-Active; 4-HotLine (Simbox); 6-HotLine ( Only Receives ); 7-Auto-Blocked; 8-Blocked; 9-Cancelled |
-| `StatusTxt` | `String` | Textual description of the status of the subscriber ValidationGSM Int GSM validation value -1-N/A; 100-Valid; 101-No ID; 103-No Photo; 104-No ID and Photo; 105-No Name; 106-ID not Clear; 107-Photo not Clear; 108-Invalid ID; 109-Names does not Match; 110-No Information |
-| `RegistrationGSMTxt` | `String` | Textual description of the ValidationGSM ValidationOM Int OrangeMoney validation value -1-N/A; 200-Valid; 201-No ID; 202-No Photo; 203-Unreadable ID; 204Invalid ID; 205-Conflict of identity (Form/ID); 206-No Contract; 207Unreadable Contract; 208-Unsigned Contract; 209-Contract information does not match; 210-No Orange Money |
-| `RegistrationOMTxt` | `String` | Textual description of the ValidationOM |
-| `OMLevel` | `String` | KYC Orange Money Level (1 – Level 1; 2 – Level 2; 3 – Level 3) |
+| `StatusTxt` | `String` | Textual description of the status of the subscriber |
+| `RegistrationGSMTxt` | `String` | Textual description of the GSM validation status. See API `/TIMM/v1/CRM/Types/KYC/GSM` for reference |
+| `RegistrationOMTxt` | `String` | Textual description of the Orange Money validation status. See API `/TIMM/v1/CRM/Types/KYC/OM` for reference |
+| `OMLevel` | `String` | Orange Money KYC level. See API `/TIMM/v1/CRM/Types/KYC/Level` for reference |
 | `OMLevelTxt` | `String` | Textual description of the OMLevel |
 | `FinalValidTxt` | `String` | Final evaluation of the registration |
 
-## Mock Responses
+## Responses
 
 ### POST — Sets the Subscriber KYC Registration Status
 

@@ -11,7 +11,7 @@ This repository contains the full documentation for the **TIMM (Telecom Integrat
 ### Interactive Explorer
 
 Open [`api_explorer.html`](https://orangeliberia.github.io/timm-api/api_explorer.html) in any browser to:
-- Browse all 221 APIs grouped by category
+- Browse all 228 APIs grouped by category
 - Search APIs by name
 - Fill in parameters interactively
 - Generate `curl` commands instantly
@@ -36,7 +36,7 @@ Open [`api_explorer.html`](https://orangeliberia.github.io/timm-api/api_explorer
 └── apis/
     ├── Authenticate_API_Token.md
     ├── PRV_Features_CallerRingBackTone.md
-    ├── ... (221 API files total)
+    ├── ... (228 API files total)
 ```
 
 ---
@@ -77,7 +77,7 @@ Every API call requires authentication credentials, provided via one of these me
 | `Resource` | SIM and MSISDN status | 2 |
 | `COMMON` | Currency utilities | 2 |
 | `BlinkSky` | BlinkSky catalog and payment services | 2 |
-| `CRM` | Subscriber registration, KYC, management | 24 |
+| `CRM` | Subscriber registration, KYC, management | 27 |
 | `Merchant` | Merchant balance, payments, bundles, utilities | 35 |
 | `Agent` | Agent operations and services | 20 |
 | `Subscriber` | Subscriber self-service operations | 70+ |
@@ -86,9 +86,10 @@ Every API call requires authentication credentials, provided via one of these me
 | `DSTV` | DSTV customer services | 4 |
 | `Satcon` | Satcon utilities | 4 |
 | `OSE` / `SCHFEES` | School fees and accounts | 8 |
-| `JungleEnergy` | JungleEnergy account and payment services | 2 |
+| `JungleEnergy` | JungleEnergy account and payment services | 4 |
 | `DSTK` | Subscriber push notifications | 1 |
 | `FlyTxt` | Inbound offers | 1 |
+| `Invoicing` | Invoice totals and billing summaries | 2 |
 | `Poll` | Polling and voting | 4 |
 | `Event` | Event ticketing | 8 |
 | `System` / `External` | Redirect utilities | 2 |

@@ -1,0 +1,2 @@
+curl-tests/generated/*
+!curl-tests/generated/.gitkeep

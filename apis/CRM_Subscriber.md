@@ -60,12 +60,12 @@ Authentication credentials must be provided on every request, either as a JSON `
 | `ProfileID` | `Integer` | Subscriber Profile ID |
 | `ProfileName` | `String` | Subscriber Profile Name |
 | `PrePaid` | `Integer` | 1 – PrePaid , 0 - PostPaid |
-| `ValidationGSM` | `Integer` | GSM validation value -1-N/A; 100-Valid; 101-No ID; 103-No Photo; 104-No ID and Photo; 105-No Name; 106-ID not Clear; 107-Photo not Clear; 108-Invalid ID; 109-Names does not Match; 110-No Information |
-| `RegistrationGSMTxt` | `String` | Textual description of the ValidationGSM ValidationOM Int OrangeMoney validation value -1-N/A; 200-Valid; 201-No ID; 202-No Photo; 203-Unreadable ID; 204Invalid ID; 205-Conflict of identity (Form/ID); 206-No Contract; 207Unreadable Contract; 208-Unsigned Contract; 209-Contract information does not match; 210-No Orange Money |
-| `ValidationOM` | `Integer` | OrangeMoney validation value -1-N/A; 200-Valid; 201-No ID; 202-No Photo; 203-Unreadable ID; 204Invalid ID; 205-Conflict of identity (Form/ID); 206-No Contract; 207Unreadable Contract; 208-Unsigned Contract; 209-Contract information does not match; 210-No Orange Money |
-| `RegistrationOMTxt` | `String` | Textual description of the ValidationOM |
+| `ValidationGSM` | `Integer` | GSM validation value. See API `/TIMM/v1/CRM/Types/KYC/GSM` for reference |
+| `RegistrationGSMTxt` | `String` | Textual description of the `ValidationGSM` |
+| `ValidationOM` | `Integer` | Orange Money validation value. See API `/TIMM/v1/CRM/Types/KYC/OM` for reference |
+| `RegistrationOMTxt` | `String` | Textual description of the `ValidationOM` |
 | `FinalValidTxt` | `String` | Final evaluation of the registration |
-| `OMLevel` | `String` | KYC Orange Money Level ( Level_1, Level_2, Level_3) |
+| `OMLevel` | `String` | Orange Money KYC level. See API `/TIMM/v1/CRM/Types/KYC/Level` for reference |
 | `OMLevelTxt` | `String` | Textual description of the OMLevel |
 | `PrePaid` | `Integer` | 1 – PrePaid , 0 - PostPaid |
 | `Status` | `String` | Status of the subscriber (Active, Blocked, HotLine and Canceled) JSON Object |
