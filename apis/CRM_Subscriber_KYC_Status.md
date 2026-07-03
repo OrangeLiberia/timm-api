@@ -34,9 +34,20 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `MSISDN` | `String` | ✅ Required | Phone Number on whose account you want to remove the Ring Back Tone. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx |
+| `MSISDN` | `String` | ✅ Required | Phone Number whose KYC registration status should be updated. Phone number can have a size of either 10 or 12 digits, according to the following formats: `077xxxxxx` Or `23177xxxxxxx` |
+| `AgentMSISDN` | `String` | Optional | Agent MSISDN associated with the KYC validation. If not provided, the value is sent as `NULL` |
+| `ValidationGSM` | `Integer` | ✅ Required | GSM validation value. See API `/TIMM/v1/CRM/Types/KYC/GSM` for reference |
+| `ValidationOM` | `Integer` | ✅ Required | Orange Money validation value. See API `/TIMM/v1/CRM/Types/KYC/OM` for reference |
+| `OMLevel` | `Integer` | Optional | Orange Money KYC level. See API `/TIMM/v1/CRM/Types/KYC/Level` for reference. Default: `1` |
 
-## Response Fields
+### GET Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `MSISDN` | `String` | ✅ Required | Phone Number whose KYC registration status should be returned. Phone number can have a size of either 10 or 12 digits, according to the following formats: `077xxxxxx` Or `23177xxxxxxx` |
+
+
+## GET Response Fields
 
 > Result type: **Single Object**
 
@@ -58,18 +69,8 @@ Authentication credentials must be provided on every request, either as a JSON `
 **Success Response (`exec_code: 0`):**
 ```json
 {
-  "exec_code": 0,
-  "exec_msg": "Success",
-  "resultset": {
-    "MSISDN": "0777777588",
-    "FullName": "John Doe",
-    "StatusTxt": "Active",
-    "RegistrationGSMTxt": "sample_RegistrationGSMTxt",
-    "RegistrationOMTxt": "sample_RegistrationOMTxt",
-    "OMLevel": "sample_OMLevel",
-    "OMLevelTxt": "sample_OMLevelTxt",
-    "FinalValidTxt": "sample_FinalValidTxt"
-  }
+  "exec_code": 200,
+  "exec_msg": "Success"
 }
 ```
 
@@ -130,7 +131,11 @@ curl -k -X POST \
     "pwd": "api_password"
   },
   "param": {
-    "MSISDN": "0777777588"
+    "MSISDN": "0777777588",
+    "AgentMSISDN": "0777000000",
+    "ValidationGSM": 100,
+    "ValidationOM": 200,
+    "OMLevel": 1
   }
 }'
 ```
