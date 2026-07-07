@@ -1,6 +1,6 @@
 # CRM/Subscriber/KYC/Status
 
-This method can be called to add, delete or get the status of the registration subscriber. It will only return a successful code if subscriber exists.
+This method can be called to set or get the KYC registration status of the subscriber. It will only return a successful code if subscriber exists.
 
 ## Action Definition
 

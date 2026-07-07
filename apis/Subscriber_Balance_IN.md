@@ -31,7 +31,15 @@ Authentication credentials must be provided on every request, either as a JSON `
 {"auth": {"user": "<username>", "pwd": "<password>"}}
 ```
 
-## Request Parameters
+## `GET` Request Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `MSISDN` | `String` | ✅ Required | Phone Number on whose account you want to remove the Ring Back Tone. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx Or, if pseudonymization is enabled for the connection, encrypted X-MSISDN header can be passed in directly. |
+| `Wallet` | `EnumString` | ✅ Required | Identification of Wallet being charged: - |
+| `Currency` | `EnumString` | ✅ Required | Main, Bonus, Extra Identification of Wallet being charged: - USD, LD |
+
+## `POST` and `DELETE` Request Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
@@ -44,7 +52,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ## Response Fields
 
-> Result type: **Single Object**
+> Result type: `GET` 
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -60,27 +68,24 @@ Authentication credentials must be provided on every request, either as a JSON `
 | `WalletID` | `String` | Output Internal ID for the Wallet |
 | `WalletName` | `String` | Output Type of Wallet: Main, Bonus, Extra |
 
-## Mock Responses
+
+> Result type: `POST` and `DELETE` 
+
+| `ExecTxt` | `String` | Execution text returned |
+| `internal_code` | `String` | Internal execution code returned |
+
+## Responses
 
 ### POST — Add Amount to a Subscriber Telecom Wallet ( aka Recharge )
 
-**Success Response (`exec_code: 0`):**
+**Success Response (`exec_code: 200`):**
 ```json
 {
-  "exec_code": 0,
+  "exec_code": 200,
   "exec_msg": "Success",
   "resultset": {
-    "msisdn": "0777777588",
-    "Internal_code": "CODE001",
-    "Balance": "250.00",
-    "BalanceExp": "250.00",
-    "CumulativeBalance": "250.00",
-    "CurrencyName": "LRD",
-    "CurrencySymbol": "LRD",
-    "Message": "sample_Message",
-    "CurrencyID": "LRD",
-    "WalletID": "sample_WalletID",
-    "WalletName": "sample_WalletName"
+    "ExecTxt": "success",
+    "internal_code": "100"
   }
 }
 ```
@@ -110,23 +115,14 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ### DELETE — Remove Amount to a Subscriber Telecom Wallet ( aka Charge )
 
-**Success Response (`exec_code: 0`):**
+**Success Response (`exec_code: 200`):**
 ```json
 {
-  "exec_code": 0,
+  "exec_code": 200,
   "exec_msg": "Success",
   "resultset": {
-    "msisdn": "0777777588",
-    "Internal_code": "CODE001",
-    "Balance": "250.00",
-    "BalanceExp": "250.00",
-    "CumulativeBalance": "250.00",
-    "CurrencyName": "LRD",
-    "CurrencySymbol": "LRD",
-    "Message": "sample_Message",
-    "CurrencyID": "LRD",
-    "WalletID": "sample_WalletID",
-    "WalletName": "sample_WalletName"
+    "ExecTxt": "success",
+    "internal_code": "100"
   }
 }
 ```
@@ -182,12 +178,26 @@ curl -k -X POST \
 
 ```bash
 curl -k -X GET \
-  "https://APIDEV.Orange.com.lr/TIMM/v2/Subscriber/Balance/IN?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0777777588&param:Wallet=<Wallet>&param:Currency=LRD&param:Amount=100.0&param:Comment=<Comment>&param:ExternalID=ID-001234"
+  "https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/Balance/IN?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0777777588&param:WALLET=W1&param:CURRENCY=USD"
 ```
 
 ### DELETE — Remove Amount to a Subscriber Telecom Wallet ( aka Charge )
 
 ```bash
 curl -k -X DELETE \
-  "https://APIDEV.Orange.com.lr/TIMM/v2/Subscriber/Balance/IN?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0777777588&param:Wallet=<Wallet>&param:Currency=LRD&param:Amount=100.0&param:Comment=<Comment>&param:ExternalID=ID-001234"
+  "https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/Balance/IN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "auth": {
+    "user": "api_user",
+    "pwd": "api_password"
+  },
+  "param": {
+    "MSISDN": "0777777000",
+    "amount": "1.1",
+    "COMMENT": "Test",
+    "CURRENCY": "USD",
+    "WALLET": "W1"
+  }
+}'
 ```

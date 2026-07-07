@@ -1,27 +1,27 @@
 # Agent/Balance/IN
 
-This method will allow’ s to see the agent telecom wallet or get the subscriber’s Balance.
+This method will allow’ s to charge or recharge an agent telecom wallet or get the agent’s Balance.
 
 ## Action Definition
 
 | HTTP Verb | Description |
 |-----------|-------------|
-| `POST` | Add Amount to a Subscriber Telecom Wallet ( aka Recharge ) |
-| `GET` | Get Current Amount on a Subscriber Telecom Wallet |
-| `DELETE` | Remove Amount to a Subscriber Telecom Wallet ( aka Charge ) |
+| `POST` | Add Amount to an Agent Telecom Wallet ( aka Recharge ) |
+| `GET` | Get Current Amount on an Agent Telecom Wallet |
+| `DELETE` | Remove Amount to an Agent Telecom Wallet ( aka Charge ) |
 
 ## Endpoint URL
 
 ```
-TIMM/v2/Subscriber/Balance/IN
+TIMM/v1/Agent/Balance/IN
 ```
 
 ## Environments
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003/TIMM/v2/Subscriber/Balance/IN` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v2/Subscriber/Balance/IN` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Agent/Balance/IN` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Agent/Balance/IN` |
 
 ## Authentication
 
@@ -31,7 +31,15 @@ Authentication credentials must be provided on every request, either as a JSON `
 {"auth": {"user": "<username>", "pwd": "<password>"}}
 ```
 
-## Request Parameters
+## `GET` Request Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `MSISDN` | `String` | ✅ Required | Phone Number on whose account you want to remove the Ring Back Tone. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx Or, if pseudonymization is enabled for the connection, encrypted X-MSISDN header can be passed in directly. |
+| `Wallet` | `EnumString` | ✅ Required | Identification of Wallet being charged: - |
+| `Currency` | `EnumString` | ✅ Required | Main, Bonus, Extra Identification of Wallet being charged: - USD, LD |
+
+## `POST` and `DELETE` Request Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
@@ -42,9 +50,10 @@ Authentication credentials must be provided on every request, either as a JSON `
 | `Comment` | `String` | ✅ Required | String that identifies the reason of charge |
 | `ExternalID` | `String` | ✅ Required | Reference’s to unique id of the caller transaction (optional) |
 
+
 ## Response Fields
 
-> Result type: **Single Object**
+> Result type: `GET`
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -60,9 +69,28 @@ Authentication credentials must be provided on every request, either as a JSON `
 | `WalletID` | `String` | Output Internal ID for the Wallet |
 | `WalletName` | `String` | Output Type of Wallet: Main, Bonus, Extra |
 
-## Mock Responses
+> Result type: `POST` and `DELETE` 
 
-### POST — Add Amount to a Subscriber Telecom Wallet ( aka Recharge )
+| `ExecTxt` | `String` | Execution text returned |
+| `internal_code` | `String` | Internal execution code returned |
+
+## Responses
+
+### POST — Add Amount to an Agent Telecom Wallet ( aka Recharge )
+
+**Success Response (`exec_code: 200`):**
+```json
+{
+  "exec_code": 200,
+  "exec_msg": "Success",
+  "resultset": {
+    "ExecTxt": "success",
+    "internal_code": "100"
+  }
+}
+```
+
+### GET — Get Current Amount on an Agent Telecom Wallet
 
 **Success Response (`exec_code: 0`):**
 ```json
@@ -85,48 +113,16 @@ Authentication credentials must be provided on every request, either as a JSON `
 }
 ```
 
-### GET — Get Current Amount on a Subscriber Telecom Wallet
+### DELETE — Remove Amount to an Agent Telecom Wallet ( aka Charge )
 
-**Success Response (`exec_code: 0`):**
+**Success Response (`exec_code: 200`):**
 ```json
 {
-  "exec_code": 0,
+  "exec_code": 200,
   "exec_msg": "Success",
   "resultset": {
-    "msisdn": "0777777588",
-    "Internal_code": "CODE001",
-    "Balance": "250.00",
-    "BalanceExp": "250.00",
-    "CumulativeBalance": "250.00",
-    "CurrencyName": "LRD",
-    "CurrencySymbol": "LRD",
-    "Message": "sample_Message",
-    "CurrencyID": "LRD",
-    "WalletID": "sample_WalletID",
-    "WalletName": "sample_WalletName"
-  }
-}
-```
-
-### DELETE — Remove Amount to a Subscriber Telecom Wallet ( aka Charge )
-
-**Success Response (`exec_code: 0`):**
-```json
-{
-  "exec_code": 0,
-  "exec_msg": "Success",
-  "resultset": {
-    "msisdn": "0777777588",
-    "Internal_code": "CODE001",
-    "Balance": "250.00",
-    "BalanceExp": "250.00",
-    "CumulativeBalance": "250.00",
-    "CurrencyName": "LRD",
-    "CurrencySymbol": "LRD",
-    "Message": "sample_Message",
-    "CurrencyID": "LRD",
-    "WalletID": "sample_WalletID",
-    "WalletName": "sample_WalletName"
+    "ExecTxt": "success",
+    "internal_code": "100"
   }
 }
 ```
@@ -156,11 +152,11 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ## cURL Examples
 
-### POST — Add Amount to a Subscriber Telecom Wallet ( aka Recharge )
+### POST — Add Amount to an Agent Telecom Wallet ( aka Recharge )
 
 ```bash
 curl -k -X POST \
-  "https://APIDEV.Orange.com.lr/TIMM/v2/Subscriber/Balance/IN" \
+  "https://APIDEV.Orange.com.lr/TIMM/v1/Agent/Balance/IN" \
   -H "Content-Type: application/json" \
   -d '{
   "auth": {
@@ -168,7 +164,7 @@ curl -k -X POST \
     "pwd": "api_password"
   },
   "param": {
-    "MSISDN": "0777777588",
+    "MSISDN": "0777777000",
     "Wallet": "<Wallet>",
     "Currency": "LRD",
     "Amount": 100.0,
@@ -178,16 +174,30 @@ curl -k -X POST \
 }'
 ```
 
-### GET — Get Current Amount on a Subscriber Telecom Wallet
+### GET — Get Current Amount on an Agent Telecom Wallet
 
 ```bash
 curl -k -X GET \
-  "https://APIDEV.Orange.com.lr/TIMM/v2/Subscriber/Balance/IN?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0777777588&param:Wallet=<Wallet>&param:Currency=LRD&param:Amount=100.0&param:Comment=<Comment>&param:ExternalID=ID-001234"
+  "https://APIDEV.Orange.com.lr/TIMM/v1/Agent/Balance/IN?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0777777588&param:WALLET=W1&param:CURRENCY=USD"
 ```
 
-### DELETE — Remove Amount to a Subscriber Telecom Wallet ( aka Charge )
+### DELETE — Remove Amount to an Agent Telecom Wallet ( aka Charge )
 
 ```bash
 curl -k -X DELETE \
-  "https://APIDEV.Orange.com.lr/TIMM/v2/Subscriber/Balance/IN?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0777777588&param:Wallet=<Wallet>&param:Currency=LRD&param:Amount=100.0&param:Comment=<Comment>&param:ExternalID=ID-001234"
+  "https://APIDEV.Orange.com.lr/TIMM/v1/Agent/Balance/IN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "auth": {
+    "user": "api_user",
+    "pwd": "api_password"
+  },
+  "param": {
+    "MSISDN": "0777777000",
+    "amount": "1.1",
+    "COMMENT": "Test",
+    "CURRENCY": "USD",
+    "WALLET": "W1"
+  }
+}'
 ```
