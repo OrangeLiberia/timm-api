@@ -34,6 +34,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `Currency` | `String` | ✅ Required | Identification of Wallet being charged: - USD |
+| `WALLET` | `EnumString` | ⬜ Optional | Defines in what Wallet the action should take place: MAIN, BONUS/LOYALTY, COMMISSION, SUSPENSE, BUSINESS. Default: MAIN |
 | `Amount` | `String` | ⬜ Optional | Expected amount to be charged the merchant account. Product Amount * Number of Months |
 | `DSTVSmartCardId` | `String` | ✅ Required | DSTV Smart Card were product should be activated. |
 | `DSTVProductCode` | `String` | ✅ Required | DSTV Product Code that needs to be activated |

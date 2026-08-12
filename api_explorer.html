@@ -917,17 +917,17 @@ const APIS_DATA_PLACEHOLDER = "APIS_DATA_JSON";
 // ==============================
 function init() {
   APIS = window._APIS_DATA || [];
-  
+
   // Stats
   const multiVerb = APIS.filter(a => a.verbs.length > 1).length;
   const groups = new Set(APIS.map(a => a.name.split('/')[0])).size;
-  
+
   document.getElementById('totalCount').textContent = APIS.length;
   document.getElementById('multiVerbCount').textContent = multiVerb;
   document.getElementById('ws-total').textContent = APIS.length;
   document.getElementById('ws-multiverb').textContent = multiVerb;
   document.getElementById('ws-groups').textContent = groups;
-  
+
   renderSidebar(APIS);
 }
 
@@ -1029,7 +1029,7 @@ function renderApiDetail(api) {
   const verbBadges = api.verbs.map(v => verbBadge(v.verb)).join(' ');
   const desc = api.description || 'No description available.';
   const effectiveUrl = api.url || `TIMM/v1/${api.name}`;
-  
+
   // Verb tabs HTML
   const verbTabsHtml = api.verbs.length > 1
     ? `<div class="verb-tabs" id="verbTabs">
@@ -1632,6 +1632,386 @@ window._APIS_DATA.push({
     }
   }
 });
+</script>
+
+<script>
+window._APIS_DATA.push({
+  "name": "Subscriber/Bundle/List/Promotional",
+  "slug": "Subscriber_Bundle_List_Promotional",
+  "url": "TIMM/v1/Subscriber/Bundle/List/Promotional",
+  "description": "This method will allow get information of the promotional Bundles available to be purchase.",
+  "verbs": [
+    {
+      "verb": "GET",
+      "description": "Get Promotional Bundles Available to be purchased by a Subscriber"
+    }
+  ],
+  "params": [
+    {
+      "name": "MSISDN",
+      "type": "String",
+      "required": false,
+      "way": "Optional",
+      "description": "Phone Number on whose account you want to add the Bundle. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx Or, if pseudonymization is enabled for the connection, encrypted XMSISDN header can be passed in directly. If provided personalized offers will be included else only generic offers are returned"
+    },
+    {
+      "name": "SegmentType",
+      "type": "String",
+      "required": false,
+      "way": "Optional",
+      "description": "Customer segment used to filter promotional bundles. If empty, all applicable promotional bundles are returned"
+    }
+  ],
+  "reply_fields": [
+    {"name": "Activation", "type": "Object Array", "description": "List of business zones and currencies where the Bundle can be purchased"},
+    {"name": "Allowances", "type": "Object Array", "description": "List of allowances included in the Bundle"},
+    {"name": "BundleID", "type": "String", "description": "Bundle Identification that should be activated. Bundle list"},
+    {"name": "CustomerSegment", "type": "String", "description": "Customer Segment"},
+    {"name": "Description", "type": "String", "description": "Bundle Description"},
+    {"name": "OfferDescription", "type": "String", "description": "Description of the Offer"},
+    {"name": "Pricing", "type": "Object Array", "description": "List of prices available for the Bundle"},
+    {"name": "Sequence", "type": "String", "description": "Unique numeric value that represents the recommended sequence of presentation of the Bundles"},
+    {"name": "Terms", "type": "String", "description": "Terms associated with the promotional Bundle"},
+    {"name": "Currency", "type": "String", "description": "Currency USD/LRD"},
+    {"name": "Zone", "type": "String", "description": "Business zone where the Bundle can be purchased: IN, OM"},
+    {"name": "DataType", "type": "EnumString", "description": "Data Type of the Value"},
+    {"name": "Type", "type": "EnumString", "description": "Type of Allowance"},
+    {"name": "Value", "type": "String", "description": "Allowance value"},
+    {"name": "ActivationZone", "type": "String", "description": "Business zone where the price applies for the Bundle: IN, OM"},
+    {"name": "Amount", "type": "String", "description": "Purchase Amount"}
+  ],
+  "result_type": "array",
+  "mock_response": {
+    "exec_code": 0,
+    "exec_msg": "Success",
+    "resultset": [
+      {
+        "Activation": [
+          {"Currency": "USD", "Zone": "IN"},
+          {"Currency": "LRD", "Zone": "OM"},
+          {"Currency": "USD", "Zone": "OM"}
+        ],
+        "Allowances": [
+          {"DataType": "Day", "Type": "VALIDITY", "Value": "1"},
+          {"DataType": "MByte", "Type": "DATA", "Value": "1700"}
+        ],
+        "BundleID": "PKG-2GB1Day",
+        "CustomerSegment": "Both",
+        "Description": "$1/190LD 1,70GB 1 day",
+        "OfferDescription": "$1/190LRD Data with 1700 MB valid for 1 day",
+        "Pricing": [
+          {"ActivationZone": "IN", "Amount": "190", "Currency": "LRD"},
+          {"ActivationZone": "IN", "Amount": "1", "Currency": "USD"},
+          {"ActivationZone": "OM", "Amount": "190", "Currency": "LRD"},
+          {"ActivationZone": "OM", "Amount": "1", "Currency": "USD"}
+        ],
+        "Sequence": "40100000",
+        "Terms": ""
+      }
+    ]
+  },
+  "error_response": {
+    "exec_code": -1004,
+    "exec_msg": "Execution failed"
+  },
+  "curl_commands": [
+    {
+      "verb": "GET",
+      "description": "Get Promotional Bundles Available to be purchased by a Subscriber",
+      "command": "curl -k -X GET \\\n  \"https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/Bundle/List/Promotional\" \\\n  -H \"Content-Type: application/json\" \\\n  --data '{\\n  \"auth\": {\\n    \"user\": \"api_user\",\\n    \"pwd\": \"api_password\"\\n  },\\n  \"param\": {\\n    \"MSISDN\": \"0777777588\",\\n    \"SegmentType\": \"\"\\n  }\\n}'",
+      "body": {
+        "auth": {
+          "user": "api_user",
+          "pwd": "api_password"
+        },
+        "param": {
+          "MSISDN": "0777777588",
+          "SegmentType": ""
+        }
+      },
+      "params": {
+        "MSISDN": "0777777588",
+        "SegmentType": ""
+      }
+    }
+  ],
+  "has_existing_response": true,
+  "existing_response": {
+    "exec_code": 0,
+    "exec_msg": "Success",
+    "resultset": [
+      {
+        "BundleID": "PKG-2GB1Day",
+        "CustomerSegment": "Both",
+        "Description": "$1/190LD 1,70GB 1 day",
+        "OfferDescription": "$1/190LRD Data with 1700 MB valid for 1 day",
+        "Sequence": "40100000",
+        "Terms": ""
+      }
+    ]
+  }
+});
+</script>
+
+<script>
+window._APIS_DATA = window._APIS_DATA.filter(function(api) {
+  return api.slug !== "Subscriber_Balance_OM";
+});
+
+window._APIS_DATA.push({
+  "name": "Subscriber/Balance/OM",
+  "slug": "Subscriber_Balance_OM",
+  "url": "TIMM/v2/Subscriber/Balance/OM",
+  "description": "This method provides the Subscriber the Orange Money Balance for one or more Wallets.",
+  "verbs": [
+    {
+      "verb": "GET",
+      "description": "Get the current eValue for the Subscriber Orange Money wallets"
+    }
+  ],
+  "params": [
+    {
+      "name": "MSISDN",
+      "type": "String",
+      "required": true,
+      "way": "Mandatory",
+      "description": "Phone Number on whose account you want to query the Orange Money Balance. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx Or, if pseudonymization is enabled for the connection, encrypted XMSISDN header can be passed in directly."
+    },
+    {
+      "name": "CURRENCY",
+      "type": "EnumString",
+      "required": true,
+      "way": "Mandatory",
+      "description": "Identification of Wallet currency being queried: USD, LRD, ALL"
+    },
+    {
+      "name": "WALLETLST",
+      "type": "String",
+      "required": true,
+      "way": "Mandatory",
+      "description": "Comma separated list of wallets to be queried, or ALL to query all available wallets"
+    }
+  ],
+  "reply_fields": [
+    {"name": "MSISDN", "type": "String", "description": "Subscriber MSISDN returned by the platform"},
+    {"name": "Wallets", "type": "Object Array", "description": "List of Orange Money wallets returned by the Balance query"},
+    {"name": "Currency", "type": "String", "description": "Wallet currency"},
+    {"name": "WalletID", "type": "String", "description": "Internal ID for the Wallet"},
+    {"name": "Wallet", "type": "String", "description": "Output Type of Wallet: MAIN, BONUS, LOYALTY, BUSINESS, COMMISSION, SUSPENSE"},
+    {"name": "Balance", "type": "String", "description": "Amount in the wallet requested"},
+    {"name": "FrBalance", "type": "String", "description": "Frozen amount in the wallet requested"},
+    {"name": "IdNo", "type": "String", "description": "Subscriber identification number"},
+    {"name": "UserID", "type": "String", "description": "User Id"},
+    {"name": "Barred", "type": "String", "description": "Is wallet barred ( YES / NO )"},
+    {"name": "SuspendStatus", "type": "String", "description": "Suspend status ( YES / NO )"},
+    {"name": "internal_code", "type": "String", "description": "Internal execution code"},
+    {"name": "mapping_code", "type": "String", "description": "Internal mapping code"},
+    {"name": "internal_msg", "type": "String", "description": "Internal message returned for the wallet. This field may be omitted"}
+  ],
+  "result_type": "single",
+  "mock_response": {
+    "exec_code": 200,
+    "exec_msg": "Success",
+    "resultset": {
+      "MSISDN": "231777777588",
+      "Wallets": [
+        {
+          "Currency": "USD",
+          "WalletID": "12",
+          "Wallet": "MAIN",
+          "Balance": "24.20",
+          "FrBalance": "0.00",
+          "IdNo": "7588",
+          "UserID": "PT170627.1622.022179",
+          "Barred": "No",
+          "SuspendStatus": "No",
+          "internal_code": "200",
+          "mapping_code": "200"
+        },
+        {
+          "Currency": "USD",
+          "WalletID": "22",
+          "Wallet": "LOYALTY",
+          "Balance": "310.27",
+          "FrBalance": "0.00",
+          "IdNo": "7588",
+          "UserID": "PT170627.1622.022179",
+          "Barred": "No",
+          "SuspendStatus": "No",
+          "internal_code": "200",
+          "mapping_code": "200"
+        }
+      ]
+    }
+  },
+  "error_response": {
+    "exec_code": -1004,
+    "exec_msg": "Execution failed"
+  },
+  "curl_commands": [
+    {
+      "verb": "GET",
+      "description": "Get all currencies and wallets.",
+      "command": "curl -k -X GET \\\n  \"https://APIDEV.Orange.com.lr/TIMM/v2/Subscriber/Balance/OM\" \\\n  -H \"Content-Type: application/json\" \\\n  --data '{\\n  \"auth\": {\\n    \"user\": \"api_user\",\\n    \"pwd\": \"api_password\"\\n  },\\n  \"param\": {\\n    \"MSISDN\": \"0777777588\",\\n    \"CURRENCY\": \"ALL\",\\n    \"WALLETLST\": \"ALL\"\\n  }\\n}'",
+      "body": {
+        "auth": {
+          "user": "api_user",
+          "pwd": "api_password"
+        },
+        "param": {
+          "MSISDN": "0777777588",
+          "CURRENCY": "ALL",
+          "WALLETLST": "ALL"
+        }
+      },
+      "params": {
+        "MSISDN": "0777777588",
+        "CURRENCY": "ALL",
+        "WALLETLST": "ALL"
+      }
+    },
+    {
+      "verb": "GET",
+      "description": "Get USD MAIN and LOYALTY wallets.",
+      "command": "curl -k -X GET \\\n  \"https://APIDEV.Orange.com.lr/TIMM/v2/Subscriber/Balance/OM\" \\\n  -H \"Content-Type: application/json\" \\\n  --data '{\\n  \"auth\": {\\n    \"user\": \"api_user\",\\n    \"pwd\": \"api_password\"\\n  },\\n  \"param\": {\\n    \"MSISDN\": \"0777777588\",\\n    \"CURRENCY\": \"USD\",\\n    \"WALLETLST\": \"MAIN,LOYALTY\"\\n  }\\n}'",
+      "body": {
+        "auth": {
+          "user": "api_user",
+          "pwd": "api_password"
+        },
+        "param": {
+          "MSISDN": "0777777588",
+          "CURRENCY": "USD",
+          "WALLETLST": "MAIN,LOYALTY"
+        }
+      },
+      "params": {
+        "MSISDN": "0777777588",
+        "CURRENCY": "USD",
+        "WALLETLST": "MAIN,LOYALTY"
+      }
+    }
+  ],
+  "has_existing_response": true,
+  "existing_response": {
+    "exec_code": 100,
+    "exec_msg": "Success with Warning: 4 of 10 balance enquiries failed",
+    "resultset": {
+      "MSISDN": "231777777588",
+      "Wallets": [
+        {
+          "Currency": "LRD",
+          "WalletID": "12",
+          "Wallet": "MAIN",
+          "Balance": "3.93",
+          "FrBalance": "0.00",
+          "IdNo": "7588",
+          "UserID": "PT170627.1629.047769",
+          "Barred": "No",
+          "SuspendStatus": "No",
+          "internal_code": "200",
+          "mapping_code": "200",
+          "internal_msg": "Wallet not found"
+        },
+        {
+          "Currency": "LRD",
+          "WalletID": "21",
+          "Wallet": "COMMISSION",
+          "internal_code": "200"
+        }
+      ]
+    }
+  }
+});
+</script>
+<script>
+(function() {
+  const walletDescription = "Defines in what Wallet the action should take place: MAIN, BONUS/LOYALTY, COMMISSION, SUSPENSE, BUSINESS. Default: MAIN";
+  const affectedSlugs = [
+    "Agent_Bundle_OM_Pay",
+    "Agent_LEC_OM_Pay",
+    "Agent_LWSC_OM_Pay",
+    "Agent_OrangeEnergy_OM_Pay",
+    "Agent_Satcon_OM_Pay",
+    "Merchant_Billers_OTHB_OM_Pay",
+    "Merchant_Bundle_OM_Pay",
+    "Merchant_DSTV_OM_Pay",
+    "Merchant_LEC_OM_Pay",
+    "Subscriber_Billers_OM_Pay",
+    "Subscriber_Billers_OM_PayStart",
+    "Subscriber_BlinkSky_OM_Pay",
+    "Subscriber_Bundle_OM_Pay",
+    "Subscriber_Bundle_OM_PayStart",
+    "Subscriber_DSTV_OM_Pay",
+    "Subscriber_DSTV_OM_PayStart",
+    "Subscriber_JungleEnergy_OM_Pay",
+    "Subscriber_LEC_OM_Pay",
+    "Subscriber_LEC_OM_PayStart",
+    "Subscriber_LWSC_OM_Pay",
+    "Subscriber_LWSC_OM_PayStart",
+    "Subscriber_OrangeEnergy_OM_Pay",
+    "Subscriber_OrangeEnergy_OM_PayStart",
+    "Subscriber_Satcon_OM_Pay",
+    "Subscriber_Satcon_OM_PayStart"
+  ];
+
+  function isAffectedPayment(api) {
+    return affectedSlugs.includes(api.slug) && /\/OM\/(?:Pay|PayStart)$/.test(api.url || "");
+  }
+
+  function ensureWalletParam(api) {
+    api.params = api.params || [];
+    const existingIndex = api.params.findIndex(function(param) {
+      return String(param.name).toUpperCase() === "WALLET";
+    });
+    const walletParam = {
+      name: "WALLET",
+      type: "EnumString",
+      required: false,
+      way: "Optional",
+      description: walletDescription
+    };
+
+    if (existingIndex >= 0) {
+      api.params[existingIndex] = Object.assign({}, api.params[existingIndex], walletParam);
+      return;
+    }
+
+    const currencyIndex = api.params.findIndex(function(param) {
+      return String(param.name).toUpperCase() === "CURRENCY";
+    });
+    api.params.splice(currencyIndex >= 0 ? currencyIndex + 1 : api.params.length, 0, walletParam);
+  }
+
+  function ensureWalletInCurl(curl) {
+    curl.params = curl.params || {};
+    curl.params.WALLET = curl.params.WALLET || "MAIN";
+
+    if (curl.body && curl.body.param) {
+      curl.body.param.WALLET = curl.body.param.WALLET || "MAIN";
+    }
+
+    if (typeof curl.command !== "string" || curl.command.includes('"WALLET"') || curl.command.includes("param:WALLET=")) {
+      return;
+    }
+
+    if (curl.command.includes('"param": {')) {
+      curl.command = curl.command.replace(/\n  }\n}'$/, ',\n    "WALLET": "MAIN"\n  }\n}\'');
+      return;
+    }
+
+    curl.command = curl.command.replace(/"$/, "&param:WALLET=MAIN\"");
+  }
+
+  (window._APIS_DATA || []).forEach(function(api) {
+    if (!isAffectedPayment(api)) {
+      return;
+    }
+
+    ensureWalletParam(api);
+    (api.curl_commands || []).forEach(ensureWalletInCurl);
+  });
+})();
 </script>
 
 </body>

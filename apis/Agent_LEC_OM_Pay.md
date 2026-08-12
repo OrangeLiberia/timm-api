@@ -35,6 +35,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 |-----------|------|----------|-------------|
 | `MSISDN` | `String` | ✅ Required | Payer Phone Number on whose account the money should be deducted. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx Or, if pseudonymization is enabled for the connection, encrypted X-MSISDN header can be passed in directly. |
 | `Currency` | `String` | ✅ Required | Identification of Wallet being charged: - |
+| `WALLET` | `EnumString` | ⬜ Optional | Defines in what Wallet the action should take place: MAIN, BONUS/LOYALTY, COMMISSION, SUSPENSE, BUSINESS. Default: MAIN |
 | `MeterID` | `String` | ✅ Required | Unique identifier of the Meter we are topping up |
 | `RecipentMSISDN` | `String` | ✅ Required | Recipient Phone Number on whose account the Token should be associated with and will receive the SMS. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx |
 | `ExternalID` | `String` | ⬜ Optional | Reference’s to unique id of the caller transaction Payer’s PIN |

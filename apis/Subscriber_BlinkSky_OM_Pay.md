@@ -37,7 +37,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 | `PayerPIN` | `String` | ✅ Required | Payer's PIN |
 | `CARDCODE` | `String` | ✅ Required | BlinkSky catalog product code |
 | `CURRENCY` | `EnumString` | ✅ Required | Identification of Wallet currency being charged: USD, LRD |
-| `WALLET` | `EnumString` | ✅ Required | Defines in what Wallet the action should take place: Main, Commission or Loyalty. Default: Main |
+| `WALLET` | `EnumString` | ⬜ Optional | Defines in what Wallet the action should take place: MAIN, BONUS/LOYALTY, COMMISSION, SUSPENSE, BUSINESS. Default: MAIN |
 | `Amount` | `Decimal` | ✅ Required | Amount to be charged to Subscriber |
 | `RECIPENTMSISDN` | `String` | ✅ Required | Recipient Phone Number on whose account the BlinkSky product should be associated with and will receive the SMS. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx |
 

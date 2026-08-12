@@ -181,6 +181,36 @@ curl -k -d @curl-tests/generated/subscriber-balance-in-delete.json -X DELETE "ht
 
 Expected result: `exec_code` is `200`, with `resultset.ExecTxt` as `success` and `resultset.internal_code` as `100`.
 
+### v2/Subscriber/Balance/OM — All Currencies and Wallets
+
+This endpoint uses a JSON body with the `GET` request.
+
+```bash
+curl -k -d @curl-tests/generated/subscriber-balance-om-all-warning.json -X GET "https://APIDEV.Orange.com.lr/TIMM/v2/Subscriber/Balance/OM"
+```
+
+Expected result: `exec_code` is `100` when some balance enquiries fail, with the available wallets returned in `resultset.Wallets`.
+
+### Subscriber/Balance/OM — USD MAIN and LOYALTY
+
+This endpoint uses a JSON body with the `GET` request.
+
+```bash
+curl -k -d @curl-tests/generated/subscriber-balance-om-usd-main-loyalty.json -X GET "https://APIDEV.Orange.com.lr/TIMM/v2/Subscriber/Balance/OM"
+```
+
+Expected result: `exec_code` is `200`, with the requested wallets returned in `resultset.Wallets`.
+
+### Subscriber/Bundle/List/Promotional
+
+This endpoint uses a JSON body with the `GET` request.
+
+```bash
+curl -k -d @curl-tests/generated/subscriber-bundle-list-promotional.json -X GET "https://192.168.19.200:11003/TIMM/v1/Subscriber/Bundle/List/Promotional"
+```
+
+Expected result: `exec_code` is `0`.
+
 ### FlyTxt/Inbound/Offers
 
 This endpoint uses credentials in the query string, so it uses a curl config file instead of a JSON body.

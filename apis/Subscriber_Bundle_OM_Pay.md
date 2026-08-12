@@ -39,7 +39,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 | `BundleZone` | `String` | ✅ Required | Bundle Zone Identification |
 | `RecipentMSISDN` | `String` | ⬜ Optional | Recipient Phone Number on whose account the Bundle should be activated on. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx Or, if pseudonymization is enabled for the connection, encrypted X-MSISDN header can be passed in directly. |
 | `ExternalID` | `String` | ⬜ Optional | Reference’s to unique id of the caller transaction |
-| `Wallet` | `EnumString` | ⬜ Optional | Restricted Defines in what Wallet the action should take place: Main or |
+| `WALLET` | `EnumString` | ⬜ Optional | Defines in what Wallet the action should take place: MAIN, BONUS/LOYALTY, COMMISSION, SUSPENSE, BUSINESS. Default: MAIN |
 
 ## Mock Responses
 

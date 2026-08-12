@@ -38,7 +38,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 | `BundleID` | `String` | ✅ Required | Bundle Identification that should be activated. Bundle list |
 | `MerchPINENC` | `String` | ⬜ Optional | Merchant PIN encrypted using public-key cryptography, making use of the certificate of the corresponding platform (by default, PIN is not required since it’s configured on the authentication session) |
 | `ExternalID` | `String` | ⬜ Optional | Reference’s to unique id of the caller transaction ( Default will use Internal API Transaction ID if not passed in) |
-| `Wallet` | `EnumString` | ⬜ Optional | Restricted Defines in what Wallet the action should take place: Main or Loyalty Default: Main |
+| `WALLET` | `EnumString` | ⬜ Optional | Defines in what Wallet the action should take place: MAIN, BONUS/LOYALTY, COMMISSION, SUSPENSE, BUSINESS. Default: MAIN |
 
 ## Mock Responses
 
