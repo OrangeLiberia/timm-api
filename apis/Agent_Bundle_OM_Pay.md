@@ -38,7 +38,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 | `WALLET` | `EnumString` | ⬜ Optional | Defines in what Wallet the action should take place: MAIN, BONUS/LOYALTY, COMMISSION, SUSPENSE, BUSINESS. Default: MAIN |
 | `BundleID` | `String` | ✅ Required | Bundle Identification that should be activated. Bundle list |
 | `RecipentMSISDN` | `String` | ⬜ Optional | Recipient Phone Number on whose account the Bundle should be activated on. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx |
-| `ExternalID` | `String` | ⬜ Optional | Reference’s to unique id of the caller transaction Defines in what Wallet the action should take place: Main or Loyalty Default: Main Payer’s PIN Payer’s PIN encrypted using public-key cryptography, making use of the certificate of the corresponding platform, and encoded into Base64. |
+| `ExternalID` | `String` | ⬜ Optional | Reference’s to unique id of the caller transaction Payer’s PIN Payer’s PIN encrypted using public-key cryptography, making use of the certificate of the corresponding platform, and encoded into Base64. |
 
 ## Mock Responses
 
