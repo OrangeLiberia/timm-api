@@ -23,7 +23,7 @@ TIMM/v1/System/Config/API/Create/User
 
 ## Authentication
 
-Authentication credentials must be provided on every request, either as URL query parameters or via HTTP Basic Authentication.
+Authentication password must be provided on every request, either as URL query parameters or via HTTP Basic Authentication.
 
 ```json
 {"auth": {"user": "<username>", "pwd": "<password>"}}
@@ -35,7 +35,7 @@ Authentication credentials must be provided on every request, either as URL quer
 |-----------|------|----------|-------------|
 | `domain` | `String` | ✅ Required | API user domain |
 | `username` | `String` | ✅ Required | API username to be created |
-| `credential` | `String` | ✅ Required | API user credential |
+| `password` | `String` | ✅ Required | API user password |
 | `Name` | `String` | ✅ Required | API user display name |
 | `Description` | `String` | ✅ Required | API user description |
 | `UserType` | `Integer` | ✅ Required | API user type. The value must exist in the API user type reference table |
