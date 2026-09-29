@@ -917,17 +917,17 @@ const APIS_DATA_PLACEHOLDER = "APIS_DATA_JSON";
 // ==============================
 function init() {
   APIS = window._APIS_DATA || [];
-  
+
   // Stats
   const multiVerb = APIS.filter(a => a.verbs.length > 1).length;
   const groups = new Set(APIS.map(a => a.name.split('/')[0])).size;
-  
+
   document.getElementById('totalCount').textContent = APIS.length;
   document.getElementById('multiVerbCount').textContent = multiVerb;
   document.getElementById('ws-total').textContent = APIS.length;
   document.getElementById('ws-multiverb').textContent = multiVerb;
   document.getElementById('ws-groups').textContent = groups;
-  
+
   renderSidebar(APIS);
 }
 
@@ -1029,7 +1029,7 @@ function renderApiDetail(api) {
   const verbBadges = api.verbs.map(v => verbBadge(v.verb)).join(' ');
   const desc = api.description || 'No description available.';
   const effectiveUrl = api.url || `TIMM/v1/${api.name}`;
-  
+
   // Verb tabs HTML
   const verbTabsHtml = api.verbs.length > 1
     ? `<div class="verb-tabs" id="verbTabs">
@@ -1630,6 +1630,960 @@ window._APIS_DATA.push({
     "resultset": {
       "CORRITXID": "TC260730.1554.A71262"
     }
+  }
+});
+</script>
+
+<script>
+window._APIS_DATA.push({
+  "name": "Subscriber/Bundle/List/Promotional",
+  "slug": "Subscriber_Bundle_List_Promotional",
+  "url": "TIMM/v1/Subscriber/Bundle/List/Promotional",
+  "description": "This method will allow get information of the promotional Bundles available to be purchase.",
+  "verbs": [
+    {
+      "verb": "GET",
+      "description": "Get Promotional Bundles Available to be purchased by a Subscriber"
+    }
+  ],
+  "params": [
+    {
+      "name": "MSISDN",
+      "type": "String",
+      "required": false,
+      "way": "Optional",
+      "description": "Phone Number on whose account you want to add the Bundle. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx Or, if pseudonymization is enabled for the connection, encrypted XMSISDN header can be passed in directly. If provided personalized offers will be included else only generic offers are returned"
+    },
+    {
+      "name": "SegmentType",
+      "type": "String",
+      "required": false,
+      "way": "Optional",
+      "description": "Customer segment used to filter promotional bundles. If empty, all applicable promotional bundles are returned"
+    }
+  ],
+  "reply_fields": [
+    {"name": "Activation", "type": "Object Array", "description": "List of business zones and currencies where the Bundle can be purchased"},
+    {"name": "Allowances", "type": "Object Array", "description": "List of allowances included in the Bundle"},
+    {"name": "BundleID", "type": "String", "description": "Bundle Identification that should be activated. Bundle list"},
+    {"name": "CustomerSegment", "type": "String", "description": "Customer Segment"},
+    {"name": "Description", "type": "String", "description": "Bundle Description"},
+    {"name": "OfferDescription", "type": "String", "description": "Description of the Offer"},
+    {"name": "Pricing", "type": "Object Array", "description": "List of prices available for the Bundle"},
+    {"name": "Sequence", "type": "String", "description": "Unique numeric value that represents the recommended sequence of presentation of the Bundles"},
+    {"name": "Terms", "type": "String", "description": "Terms associated with the promotional Bundle"},
+    {"name": "Currency", "type": "String", "description": "Currency USD/LRD"},
+    {"name": "Zone", "type": "String", "description": "Business zone where the Bundle can be purchased: IN, OM"},
+    {"name": "DataType", "type": "EnumString", "description": "Data Type of the Value"},
+    {"name": "Type", "type": "EnumString", "description": "Type of Allowance"},
+    {"name": "Value", "type": "String", "description": "Allowance value"},
+    {"name": "ActivationZone", "type": "String", "description": "Business zone where the price applies for the Bundle: IN, OM"},
+    {"name": "Amount", "type": "String", "description": "Purchase Amount"}
+  ],
+  "result_type": "array",
+  "mock_response": {
+    "exec_code": 0,
+    "exec_msg": "Success",
+    "resultset": [
+      {
+        "Activation": [
+          {"Currency": "USD", "Zone": "IN"},
+          {"Currency": "LRD", "Zone": "OM"},
+          {"Currency": "USD", "Zone": "OM"}
+        ],
+        "Allowances": [
+          {"DataType": "Day", "Type": "VALIDITY", "Value": "1"},
+          {"DataType": "MByte", "Type": "DATA", "Value": "1700"}
+        ],
+        "BundleID": "PKG-2GB1Day",
+        "CustomerSegment": "Both",
+        "Description": "$1/190LD 1,70GB 1 day",
+        "OfferDescription": "$1/190LRD Data with 1700 MB valid for 1 day",
+        "Pricing": [
+          {"ActivationZone": "IN", "Amount": "190", "Currency": "LRD"},
+          {"ActivationZone": "IN", "Amount": "1", "Currency": "USD"},
+          {"ActivationZone": "OM", "Amount": "190", "Currency": "LRD"},
+          {"ActivationZone": "OM", "Amount": "1", "Currency": "USD"}
+        ],
+        "Sequence": "40100000",
+        "Terms": ""
+      }
+    ]
+  },
+  "error_response": {
+    "exec_code": -1004,
+    "exec_msg": "Execution failed"
+  },
+  "curl_commands": [
+    {
+      "verb": "GET",
+      "description": "Get Promotional Bundles Available to be purchased by a Subscriber",
+      "command": "curl -k -X GET \\\n  \"https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/Bundle/List/Promotional\" \\\n  -H \"Content-Type: application/json\" \\\n  --data '{\\n  \"auth\": {\\n    \"user\": \"api_user\",\\n    \"pwd\": \"api_password\"\\n  },\\n  \"param\": {\\n    \"MSISDN\": \"0777777588\",\\n    \"SegmentType\": \"\"\\n  }\\n}'",
+      "body": {
+        "auth": {
+          "user": "api_user",
+          "pwd": "api_password"
+        },
+        "param": {
+          "MSISDN": "0777777588",
+          "SegmentType": ""
+        }
+      },
+      "params": {
+        "MSISDN": "0777777588",
+        "SegmentType": ""
+      }
+    }
+  ],
+  "has_existing_response": true,
+  "existing_response": {
+    "exec_code": 0,
+    "exec_msg": "Success",
+    "resultset": [
+      {
+        "BundleID": "PKG-2GB1Day",
+        "CustomerSegment": "Both",
+        "Description": "$1/190LD 1,70GB 1 day",
+        "OfferDescription": "$1/190LRD Data with 1700 MB valid for 1 day",
+        "Sequence": "40100000",
+        "Terms": ""
+      }
+    ]
+  }
+});
+
+window._APIS_DATA = window._APIS_DATA.filter(function(api) {
+  return api.slug !== "System_Config_API_User_Permission";
+});
+
+window._APIS_DATA.push({
+  "name": "System/Config/API/User/Permission",
+  "slug": "System_Config_API_User_Permission",
+  "url": "TIMM/v1/System/Config/API/User/Permission",
+  "description": "Adds or removes one API permission for an existing API user. POST adds the permission and DELETE removes it.",
+  "verbs": [
+    {"verb": "POST", "description": "Adds one API permission to a user"},
+    {"verb": "DELETE", "description": "Removes one API permission from a user"}
+  ],
+  "params": [
+    {"name": "username", "type": "String", "required": true, "way": "Input", "description": "Existing API username in the current server environment"},
+    {"name": "APIID", "type": "Integer", "required": true, "way": "Input", "description": "Identifier of the API permission to add or remove"}
+  ],
+  "reply_fields": [
+    {"name": "exec_code", "type": "Integer", "description": "Execution code"},
+    {"name": "exec_msg", "type": "String", "description": "Execution message"},
+    {"name": "resultset", "type": "Object", "description": "Permission added or removed; omitted on error"},
+    {"name": "resultset.APIID", "type": "String", "description": "Identifier of the API permission"},
+    {"name": "resultset.CreationDate", "type": "DateTime String", "description": "Date and time when the permission was originally created"},
+    {"name": "resultset.IDUser", "type": "String", "description": "Internal identifier of the API user"},
+    {"name": "resultset.Username", "type": "String", "description": "API username affected by the operation"}
+  ],
+  "result_type": "single",
+  "mock_response": {
+    "exec_code": 200,
+    "exec_msg": "Success",
+    "resultset": {
+      "APIID": "214042",
+      "CreationDate": "2026-08-29 00:59:06.210",
+      "IDUser": "1001",
+      "Username": "test"
+    }
+  },
+  "error_response": {
+    "exec_code": -2201,
+    "exec_msg": "The username does not exist in the current environment."
+  },
+  "curl_commands": [
+    {
+      "verb": "POST",
+      "description": "Add an API permission (expected exec_code 200)",
+      "command": "curl.exe --silent --show-error --request POST \\\n  --header \"Accept: application/json\" \\\n  --header \"Content-Type: application/json\" \\\n  --data-binary @curl-tests/generated/system-config-api-user-permission-post-success.json \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/User/Permission?auth:user=api_user&auth:pwd=api_password\"",
+      "body": {
+        "param": {
+          "username": "test",
+          "APIID": 214042
+        }
+      },
+      "params": {
+        "username": "test",
+        "APIID": 214042
+      }
+    },
+    {
+      "verb": "POST",
+      "description": "Username does not exist (expected exec_code -2201)",
+      "command": "curl.exe --silent --show-error --request POST \\\n  --header \"Accept: application/json\" \\\n  --header \"Content-Type: application/json\" \\\n  --data-binary @curl-tests/generated/system-config-api-user-permission-post-user-not-found.json \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/User/Permission?auth:user=api_user&auth:pwd=api_password\"",
+      "body": {
+        "param": {
+          "username": "permission-user-does-not-exist",
+          "APIID": 214042
+        }
+      },
+      "params": {
+        "username": "permission-user-does-not-exist",
+        "APIID": 214042
+      }
+    },
+    {
+      "verb": "POST",
+      "description": "Permission already assigned (expected exec_code -2204)",
+      "command": "curl.exe --silent --show-error --request POST \\\n  --header \"Accept: application/json\" \\\n  --header \"Content-Type: application/json\" \\\n  --data-binary @curl-tests/generated/system-config-api-user-permission-post-duplicate.json \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/User/Permission?auth:user=api_user&auth:pwd=api_password\"",
+      "body": {
+        "param": {
+          "username": "test",
+          "APIID": 214042
+        }
+      },
+      "params": {
+        "username": "test",
+        "APIID": 214042
+      }
+    },
+    {
+      "verb": "POST",
+      "description": "API permission does not exist (expected exec_code -2203)",
+      "command": "curl.exe --silent --show-error --request POST \\\n  --header \"Accept: application/json\" \\\n  --header \"Content-Type: application/json\" \\\n  --data-binary @curl-tests/generated/system-config-api-user-permission-post-api-not-found.json \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/User/Permission?auth:user=api_user&auth:pwd=api_password\"",
+      "body": {
+        "param": {
+          "username": "test",
+          "APIID": 11214042
+        }
+      },
+      "params": {
+        "username": "test",
+        "APIID": 11214042
+      }
+    },
+    {
+      "verb": "DELETE",
+      "description": "Username does not exist (expected exec_code -2201)",
+      "command": "curl.exe --silent --show-error --request DELETE \\\n  --header \"Accept: application/json\" \\\n  --header \"Content-Type: application/json\" \\\n  --data-binary @curl-tests/generated/system-config-api-user-permission-delete-user-not-found.json \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/User/Permission?auth:user=api_user&auth:pwd=api_password\"",
+      "body": {
+        "param": {
+          "username": "permission-user-does-not-exist",
+          "APIID": 214042
+        }
+      },
+      "params": {
+        "username": "permission-user-does-not-exist",
+        "APIID": 214042
+      }
+    },
+    {
+      "verb": "DELETE",
+      "description": "API permission does not exist (expected exec_code -2203)",
+      "command": "curl.exe --silent --show-error --request DELETE \\\n  --header \"Accept: application/json\" \\\n  --header \"Content-Type: application/json\" \\\n  --data-binary @curl-tests/generated/system-config-api-user-permission-delete-api-not-found.json \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/User/Permission?auth:user=api_user&auth:pwd=api_password\"",
+      "body": {
+        "param": {
+          "username": "test",
+          "APIID": 11214042
+        }
+      },
+      "params": {
+        "username": "test",
+        "APIID": 11214042
+      }
+    },
+    {
+      "verb": "DELETE",
+      "description": "Remove an API permission (expected exec_code 200)",
+      "command": "curl.exe --silent --show-error --request DELETE \\\n  --header \"Accept: application/json\" \\\n  --header \"Content-Type: application/json\" \\\n  --data-binary @curl-tests/generated/system-config-api-user-permission-delete-success.json \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/User/Permission?auth:user=api_user&auth:pwd=api_password\"",
+      "body": {
+        "param": {
+          "username": "test",
+          "APIID": 214042
+        }
+      },
+      "params": {
+        "username": "test",
+        "APIID": 214042
+      }
+    },
+    {
+      "verb": "DELETE",
+      "description": "Permission not assigned (expected exec_code -2205)",
+      "command": "curl.exe --silent --show-error --request DELETE \\\n  --header \"Accept: application/json\" \\\n  --header \"Content-Type: application/json\" \\\n  --data-binary @curl-tests/generated/system-config-api-user-permission-delete-not-assigned.json \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/User/Permission?auth:user=api_user&auth:pwd=api_password\"",
+      "body": {
+        "param": {
+          "username": "test",
+          "APIID": 214042
+        }
+      },
+      "params": {
+        "username": "test",
+        "APIID": 214042
+      }
+    }
+  ],
+  "has_existing_response": true,
+  "existing_response": {
+    "exec_code": 200,
+    "exec_msg": "Success",
+    "resultset": {
+      "APIID": "214042",
+      "CreationDate": "2026-08-29 00:59:06.210",
+      "IDUser": "1001",
+      "Username": "test"
+    }
+  }
+});
+</script>
+
+<script>
+window._APIS_DATA = window._APIS_DATA.filter(function(api) {
+  return api.slug !== "Subscriber_Balance_OM";
+});
+
+window._APIS_DATA.push({
+  "name": "Subscriber/Balance/OM",
+  "slug": "Subscriber_Balance_OM",
+  "url": "TIMM/v2/Subscriber/Balance/OM",
+  "description": "This method provides the Subscriber the Orange Money Balance for one or more Wallets.",
+  "verbs": [
+    {
+      "verb": "GET",
+      "description": "Get the current eValue for the Subscriber Orange Money wallets"
+    }
+  ],
+  "params": [
+    {
+      "name": "MSISDN",
+      "type": "String",
+      "required": true,
+      "way": "Mandatory",
+      "description": "Phone Number on whose account you want to query the Orange Money Balance. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx Or, if pseudonymization is enabled for the connection, encrypted XMSISDN header can be passed in directly."
+    },
+    {
+      "name": "CURRENCY",
+      "type": "EnumString",
+      "required": true,
+      "way": "Mandatory",
+      "description": "Identification of Wallet currency being queried: USD, LRD, ALL"
+    },
+    {
+      "name": "WALLETLST",
+      "type": "String",
+      "required": true,
+      "way": "Mandatory",
+      "description": "Comma separated list of wallets to be queried, or ALL to query all available wallets"
+    }
+  ],
+  "reply_fields": [
+    {"name": "MSISDN", "type": "String", "description": "Subscriber MSISDN returned by the platform"},
+    {"name": "Wallets", "type": "Object Array", "description": "List of Orange Money wallets returned by the Balance query"},
+    {"name": "Currency", "type": "String", "description": "Wallet currency"},
+    {"name": "WalletID", "type": "String", "description": "Internal ID for the Wallet"},
+    {"name": "Wallet", "type": "String", "description": "Output Type of Wallet: MAIN, BONUS, LOYALTY, BUSINESS, COMMISSION, SUSPENSE"},
+    {"name": "Balance", "type": "String", "description": "Amount in the wallet requested"},
+    {"name": "FrBalance", "type": "String", "description": "Frozen amount in the wallet requested"},
+    {"name": "IdNo", "type": "String", "description": "Subscriber identification number"},
+    {"name": "UserID", "type": "String", "description": "User Id"},
+    {"name": "Barred", "type": "String", "description": "Is wallet barred ( YES / NO )"},
+    {"name": "SuspendStatus", "type": "String", "description": "Suspend status ( YES / NO )"},
+    {"name": "internal_code", "type": "String", "description": "Internal execution code"},
+    {"name": "mapping_code", "type": "String", "description": "Internal mapping code"},
+    {"name": "internal_msg", "type": "String", "description": "Internal message returned for the wallet. This field may be omitted"}
+  ],
+  "result_type": "single",
+  "mock_response": {
+    "exec_code": 200,
+    "exec_msg": "Success",
+    "resultset": {
+      "MSISDN": "231777777588",
+      "Wallets": [
+        {
+          "Currency": "USD",
+          "WalletID": "12",
+          "Wallet": "MAIN",
+          "Balance": "24.20",
+          "FrBalance": "0.00",
+          "IdNo": "7588",
+          "UserID": "PT170627.1622.022179",
+          "Barred": "No",
+          "SuspendStatus": "No",
+          "internal_code": "200",
+          "mapping_code": "200"
+        },
+        {
+          "Currency": "USD",
+          "WalletID": "22",
+          "Wallet": "LOYALTY",
+          "Balance": "310.27",
+          "FrBalance": "0.00",
+          "IdNo": "7588",
+          "UserID": "PT170627.1622.022179",
+          "Barred": "No",
+          "SuspendStatus": "No",
+          "internal_code": "200",
+          "mapping_code": "200"
+        }
+      ]
+    }
+  },
+  "error_response": {
+    "exec_code": -1004,
+    "exec_msg": "Execution failed"
+  },
+  "curl_commands": [
+    {
+      "verb": "GET",
+      "description": "Get all currencies and wallets.",
+      "command": "curl -k -X GET \\\n  \"https://APIDEV.Orange.com.lr/TIMM/v2/Subscriber/Balance/OM\" \\\n  -H \"Content-Type: application/json\" \\\n  --data '{\\n  \"auth\": {\\n    \"user\": \"api_user\",\\n    \"pwd\": \"api_password\"\\n  },\\n  \"param\": {\\n    \"MSISDN\": \"0777777588\",\\n    \"CURRENCY\": \"ALL\",\\n    \"WALLETLST\": \"ALL\"\\n  }\\n}'",
+      "body": {
+        "auth": {
+          "user": "api_user",
+          "pwd": "api_password"
+        },
+        "param": {
+          "MSISDN": "0777777588",
+          "CURRENCY": "ALL",
+          "WALLETLST": "ALL"
+        }
+      },
+      "params": {
+        "MSISDN": "0777777588",
+        "CURRENCY": "ALL",
+        "WALLETLST": "ALL"
+      }
+    },
+    {
+      "verb": "GET",
+      "description": "Get USD MAIN and LOYALTY wallets.",
+      "command": "curl -k -X GET \\\n  \"https://APIDEV.Orange.com.lr/TIMM/v2/Subscriber/Balance/OM\" \\\n  -H \"Content-Type: application/json\" \\\n  --data '{\\n  \"auth\": {\\n    \"user\": \"api_user\",\\n    \"pwd\": \"api_password\"\\n  },\\n  \"param\": {\\n    \"MSISDN\": \"0777777588\",\\n    \"CURRENCY\": \"USD\",\\n    \"WALLETLST\": \"MAIN,LOYALTY\"\\n  }\\n}'",
+      "body": {
+        "auth": {
+          "user": "api_user",
+          "pwd": "api_password"
+        },
+        "param": {
+          "MSISDN": "0777777588",
+          "CURRENCY": "USD",
+          "WALLETLST": "MAIN,LOYALTY"
+        }
+      },
+      "params": {
+        "MSISDN": "0777777588",
+        "CURRENCY": "USD",
+        "WALLETLST": "MAIN,LOYALTY"
+      }
+    }
+  ],
+  "has_existing_response": true,
+  "existing_response": {
+    "exec_code": 100,
+    "exec_msg": "Success with Warning: 4 of 10 balance enquiries failed",
+    "resultset": {
+      "MSISDN": "231777777588",
+      "Wallets": [
+        {
+          "Currency": "LRD",
+          "WalletID": "12",
+          "Wallet": "MAIN",
+          "Balance": "3.93",
+          "FrBalance": "0.00",
+          "IdNo": "7588",
+          "UserID": "PT170627.1629.047769",
+          "Barred": "No",
+          "SuspendStatus": "No",
+          "internal_code": "200",
+          "mapping_code": "200",
+          "internal_msg": "Wallet not found"
+        },
+        {
+          "Currency": "LRD",
+          "WalletID": "21",
+          "Wallet": "COMMISSION",
+          "internal_code": "200"
+        }
+      ]
+    }
+  }
+});
+</script>
+<script>
+(function() {
+  const walletDescription = "Defines in what Wallet the action should take place: MAIN, BONUS/LOYALTY, COMMISSION, SUSPENSE, BUSINESS. Default: MAIN";
+  const affectedSlugs = [
+    "Agent_Bundle_OM_Pay",
+    "Agent_LEC_OM_Pay",
+    "Agent_LWSC_OM_Pay",
+    "Agent_OrangeEnergy_OM_Pay",
+    "Agent_Satcon_OM_Pay",
+    "Merchant_Billers_OTHB_OM_Pay",
+    "Merchant_Bundle_OM_Pay",
+    "Merchant_DSTV_OM_Pay",
+    "Merchant_LEC_OM_Pay",
+    "Subscriber_Billers_OM_Pay",
+    "Subscriber_Billers_OM_PayStart",
+    "Subscriber_BlinkSky_OM_Pay",
+    "Subscriber_Bundle_OM_Pay",
+    "Subscriber_Bundle_OM_PayStart",
+    "Subscriber_DSTV_OM_Pay",
+    "Subscriber_DSTV_OM_PayStart",
+    "Subscriber_JungleEnergy_OM_Pay",
+    "Subscriber_LEC_OM_Pay",
+    "Subscriber_LEC_OM_PayStart",
+    "Subscriber_LWSC_OM_Pay",
+    "Subscriber_LWSC_OM_PayStart",
+    "Subscriber_OrangeEnergy_OM_Pay",
+    "Subscriber_OrangeEnergy_OM_PayStart",
+    "Subscriber_Satcon_OM_Pay",
+    "Subscriber_Satcon_OM_PayStart"
+  ];
+
+  function isAffectedPayment(api) {
+    return affectedSlugs.includes(api.slug) && /\/OM\/(?:Pay|PayStart)$/.test(api.url || "");
+  }
+
+  function ensureWalletParam(api) {
+    api.params = api.params || [];
+    const existingIndex = api.params.findIndex(function(param) {
+      return String(param.name).toUpperCase() === "WALLET";
+    });
+    const walletParam = {
+      name: "WALLET",
+      type: "EnumString",
+      required: false,
+      way: "Optional",
+      description: walletDescription
+    };
+
+    if (existingIndex >= 0) {
+      api.params[existingIndex] = Object.assign({}, api.params[existingIndex], walletParam);
+      return;
+    }
+
+    const currencyIndex = api.params.findIndex(function(param) {
+      return String(param.name).toUpperCase() === "CURRENCY";
+    });
+    api.params.splice(currencyIndex >= 0 ? currencyIndex + 1 : api.params.length, 0, walletParam);
+  }
+
+  function ensureWalletInCurl(curl) {
+    curl.params = curl.params || {};
+    curl.params.WALLET = curl.params.WALLET || "MAIN";
+
+    if (curl.body && curl.body.param) {
+      curl.body.param.WALLET = curl.body.param.WALLET || "MAIN";
+    }
+
+    if (typeof curl.command !== "string" || curl.command.includes('"WALLET"') || curl.command.includes("param:WALLET=")) {
+      return;
+    }
+
+    if (curl.command.includes('"param": {')) {
+      curl.command = curl.command.replace(/\n  }\n}'$/, ',\n    "WALLET": "MAIN"\n  }\n}\'');
+      return;
+    }
+
+    curl.command = curl.command.replace(/"$/, "&param:WALLET=MAIN\"");
+  }
+
+  (window._APIS_DATA || []).forEach(function(api) {
+    if (!isAffectedPayment(api)) {
+      return;
+    }
+
+    ensureWalletParam(api);
+    (api.curl_commands || []).forEach(ensureWalletInCurl);
+  });
+})();
+</script>
+<script>
+window._APIS_DATA = window._APIS_DATA.filter(function(api) {
+  return api.slug !== "System_Config_API_OM_Free" && api.slug !== "System_Config_API_IN_Free";
+});
+
+window._APIS_DATA.push({
+  "name": "System/Config/API/OM/Free",
+  "slug": "System_Config_API_OM_Free",
+  "url": "TIMM/v1/System/Config/API/OM/Free",
+  "description": "This method can be called to return the free Orange Money API configuration resource.",
+  "verbs": [
+    {"verb": "GET", "description": "Returns the free Orange Money API configuration"}
+  ],
+  "params": [],
+  "reply_fields": [
+    {"name": "exec_code", "type": "Integer", "description": "Execution code"},
+    {"name": "exec_msg", "type": "String", "description": "Execution message"},
+    {"name": "resultset", "type": "Object", "description": "Object containing API configuration information"},
+    {"name": "resultset.Config", "type": "Object", "description": "Object containing free Orange Money API configuration"},
+    {"name": "resultset.Config.BILLERWALLET", "type": "String", "description": "Biller Wallet configuration resource"},
+    {"name": "resultset.Config.MERCHWALLLET", "type": "String", "description": "Merchant Wallet configuration resource"}
+  ],
+  "result_type": "single",
+  "mock_response": {
+    "exec_code": 200,
+    "exec_msg": "Success",
+    "resultset": {
+      "Config": {
+        "BILLERWALLET": "OM-WALLET-0779612009",
+        "MERCHWALLLET": "OM-WALLET-0779612009"
+      }
+    }
+  },
+  "error_response": {
+    "exec_code": 2002,
+    "exec_msg": "No OM configuration resource is available"
+  },
+  "curl_commands": [
+    {
+      "verb": "GET",
+      "description": "Returns the free Orange Money API configuration",
+      "command": "curl -k --silent --show-error -X GET \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/OM/Free?auth:user=api_user&auth:pwd=api_password\" \\\n  -H \"Accept: application/json\"",
+      "body": null,
+      "params": {}
+    }
+  ],
+  "has_existing_response": true,
+  "existing_response": {
+    "exec_code": 2002,
+    "exec_msg": "No OM configuration resource is available"
+  }
+});
+
+window._APIS_DATA.push({
+  "name": "System/Config/API/IN/Free",
+  "slug": "System_Config_API_IN_Free",
+  "url": "TIMM/v1/System/Config/API/IN/Free",
+  "description": "This method can be called to return the free Intelligent Network API configuration resource.",
+  "verbs": [
+    {"verb": "GET", "description": "Returns the free Intelligent Network API configuration"}
+  ],
+  "params": [],
+  "reply_fields": [
+    {"name": "exec_code", "type": "Integer", "description": "Execution code"},
+    {"name": "exec_msg", "type": "String", "description": "Execution message"},
+    {"name": "resultset", "type": "Object", "description": "Object containing API configuration information"},
+    {"name": "resultset.Config", "type": "Object", "description": "Object containing free Intelligent Network API configuration"},
+    {"name": "resultset.Config.SPID", "type": "String", "description": "Service Provider ID"},
+    {"name": "resultset.Config.TRANSKEY", "type": "String", "description": "Transaction key"}
+  ],
+  "result_type": "single",
+  "mock_response": {
+    "exec_code": 200,
+    "exec_msg": "Success",
+    "resultset": {
+      "Config": {
+        "SPID": "100300",
+        "TRANSKEY": "166"
+      }
+    }
+  },
+  "error_response": {
+    "exec_code": 2001,
+    "exec_msg": "No IN configuration resource is available"
+  },
+  "curl_commands": [
+    {
+      "verb": "GET",
+      "description": "Returns the free Intelligent Network API configuration",
+      "command": "curl -k --silent --show-error -X GET \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/IN/Free?auth:user=api_user&auth:pwd=api_password\" \\\n  -H \"Accept: application/json\"",
+      "body": null,
+      "params": {}
+    }
+  ],
+  "has_existing_response": true,
+  "existing_response": {
+    "exec_code": 2001,
+    "exec_msg": "No IN configuration resource is available"
+  }
+});
+
+window._APIS_DATA = window._APIS_DATA.filter(function(api) {
+  return api.slug !== "System_Config_API_Create_User";
+});
+
+window._APIS_DATA.push({
+  "name": "System/Config/API/Create/User",
+  "slug": "System_Config_API_Create_User",
+  "url": "TIMM/v1/System/Config/API/Create/User",
+  "description": "This method can be called to create an API user and optionally assign configuration resources to the new user.",
+  "verbs": [
+    {"verb": "POST", "description": "Create API user and assign configuration resources"}
+  ],
+  "params": [
+    {"name": "domain", "type": "String", "required": true, "way": "Input", "description": "API user domain"},
+    {"name": "username", "type": "String", "required": true, "way": "Input", "description": "API username to be created"},
+    {"name": "credential", "type": "String", "required": true, "way": "Input", "description": "API user credential"},
+    {"name": "Name", "type": "String", "required": true, "way": "Input", "description": "API user display name"},
+    {"name": "Description", "type": "String", "required": true, "way": "Input", "description": "API user description"},
+    {"name": "UserType", "type": "Integer", "required": true, "way": "Input", "description": "API user type. The value must exist in the API user type reference table"},
+    {"name": "Creator", "type": "String", "required": true, "way": "Input", "description": "User or process requesting the API user creation"},
+    {"name": "InternalBusinessOwner", "type": "String", "required": true, "way": "Input", "description": "Internal business owner name"},
+    {"name": "InternalBusinessOwnerPhone", "type": "String", "required": true, "way": "Input", "description": "Internal business owner phone number"},
+    {"name": "InternalBusinessOwnerEmail", "type": "String", "required": true, "way": "Input", "description": "Internal business owner email address"},
+    {"name": "PartnerName", "type": "String", "required": true, "way": "Input", "description": "Partner name"},
+    {"name": "PartnerPhone", "type": "String", "required": true, "way": "Input", "description": "Partner phone number"},
+    {"name": "PartnerEmail", "type": "String", "required": true, "way": "Input", "description": "Partner email address"},
+    {"name": "ExecAttributes", "type": "String Array", "required": false, "way": "Optional", "description": "List of unique, available ResourceKey values to assign to the new user"}
+  ],
+  "reply_fields": [
+    {"name": "exec_code", "type": "Integer", "description": "Execution code"},
+    {"name": "exec_msg", "type": "String", "description": "Execution message"},
+    {"name": "resultset", "type": "Object", "description": "Object containing user creation information"},
+    {"name": "resultset.User", "type": "Object", "description": "Object containing the created API user information. On failed calls this value can be empty"},
+    {"name": "resultset.User.Domain", "type": "String", "description": "API user domain"},
+    {"name": "resultset.User.ID", "type": "String", "description": "Internal API user ID"},
+    {"name": "resultset.User.UserID", "type": "String", "description": "API user ID"},
+    {"name": "resultset.User.Username", "type": "String", "description": "API username created"}
+  ],
+  "result_type": "single",
+  "mock_response": {
+    "exec_code": 200,
+    "exec_msg": "Success",
+    "resultset": {
+      "User": {
+        "Domain": "TEST",
+        "ID": "2129083",
+        "UserID": "1007",
+        "Username": "api-resource-test-001"
+      }
+    }
+  },
+  "error_response": {
+    "exec_code": -1003,
+    "exec_msg": "API Call is missing a parameter: CREATOR"
+  },
+  "curl_commands": [
+    {
+      "verb": "POST",
+      "description": "Create API user with configuration resources",
+      "command": "curl -k --silent --show-error -X POST \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/Create/User?auth:user=api_user&auth:pwd=api_password\" \\\n  -H \"Accept: application/json\" \\\n  -H \"Content-Type: application/json\" \\\n  --data-binary @curl-tests/generated/system-config-api-create-user-with-resources.json",
+      "body": {
+        "param": {
+          "domain": "TEST",
+          "username": "api-resource-test-001",
+          "credential": "ChangeMe-TestOnly-2026!",
+          "Name": "API resource test 001",
+          "Description": "Creates a test API user and claims one IN and one OM resource",
+          "UserType": 20,
+          "ExecAttributes": [
+            "IN-100300166",
+            "OM-WALLET-0779612009"
+          ],
+          "Creator": "TIMM API deployment test",
+          "InternalBusinessOwner": "Replace with internal owner",
+          "InternalBusinessOwnerPhone": "+00000000001",
+          "InternalBusinessOwnerEmail": "internal.owner@example.invalid",
+          "PartnerName": "Replace with partner",
+          "PartnerPhone": "+00000000002",
+          "PartnerEmail": "partner@example.invalid"
+        }
+      },
+      "params": {}
+    },
+    {
+      "verb": "POST",
+      "description": "Create API user without configuration resources",
+      "command": "curl -k --silent --show-error -X POST \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/Create/User?auth:user=api_user&auth:pwd=api_password\" \\\n  -H \"Accept: application/json\" \\\n  -H \"Content-Type: application/json\" \\\n  --data-binary @curl-tests/generated/system-config-api-create-user-without-resources.json",
+      "body": {
+        "param": {
+          "domain": "TEST",
+          "username": "api-resource-test-002",
+          "credential": "ChangeMe-TestOnly-2026!",
+          "Name": "API resource test 002",
+          "Description": "Creates a test API user without claiming configuration resources",
+          "UserType": 10,
+          "Creator": "TIMM API deployment test",
+          "InternalBusinessOwner": "Replace with internal owner",
+          "InternalBusinessOwnerPhone": "+00000000001",
+          "InternalBusinessOwnerEmail": "internal.owner@example.invalid",
+          "PartnerName": "Replace with partner",
+          "PartnerPhone": "+00000000002",
+          "PartnerEmail": "partner@example.invalid"
+        }
+      },
+      "params": {}
+    },
+    {
+      "verb": "POST",
+      "description": "Missing Creator",
+      "command": "curl -k --silent --show-error -X POST \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/Create/User?auth:user=api_user&auth:pwd=api_password\" \\\n  -H \"Accept: application/json\" \\\n  -H \"Content-Type: application/json\" \\\n  --data-binary @curl-tests/generated/system-config-api-create-user-missing-creator.json",
+      "body": {
+        "param": {
+          "domain": "TEST",
+          "username": "api-resource-test-003",
+          "credential": "ChangeMe-TestOnly-2026!",
+          "Name": "API resource test 003",
+          "Description": "Negative test that omits the mandatory Creator field",
+          "UserType": 1,
+          "InternalBusinessOwner": "Replace with internal owner",
+          "InternalBusinessOwnerPhone": "+00000000001",
+          "InternalBusinessOwnerEmail": "internal.owner@example.invalid",
+          "PartnerName": "Replace with partner",
+          "PartnerPhone": "+00000000002",
+          "PartnerEmail": "partner@example.invalid"
+        }
+      },
+      "params": {}
+    },
+    {
+      "verb": "POST",
+      "description": "Unavailable configuration resources",
+      "command": "curl -k --silent --show-error -X POST \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/Create/User?auth:user=api_user&auth:pwd=api_password\" \\\n  -H \"Accept: application/json\" \\\n  -H \"Content-Type: application/json\" \\\n  --data-binary @curl-tests/generated/system-config-api-create-user-with-unavailable-resources.json",
+      "body": {
+        "param": {
+          "domain": "TEST",
+          "username": "api-resource-test-004",
+          "credential": "ChangeMe-TestOnly-2026!",
+          "Name": "API resource test 004",
+          "Description": "Negative test that requests unavailable resources",
+          "UserType": 10,
+          "ExecAttributes": [
+            "IN-100259",
+            "OM-0779948136"
+          ],
+          "Creator": "TIMM API deployment test",
+          "InternalBusinessOwner": "Replace with internal owner",
+          "InternalBusinessOwnerPhone": "+00000000001",
+          "InternalBusinessOwnerEmail": "internal.owner@example.invalid",
+          "PartnerName": "Replace with partner",
+          "PartnerPhone": "+00000000002",
+          "PartnerEmail": "partner@example.invalid"
+        }
+      },
+      "params": {}
+    },
+    {
+      "verb": "POST",
+      "description": "Duplicate username",
+      "command": "curl -k --silent --show-error -X POST \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/Create/User?auth:user=api_user&auth:pwd=api_password\" \\\n  -H \"Accept: application/json\" \\\n  -H \"Content-Type: application/json\" \\\n  --data-binary @curl-tests/generated/system-config-api-create-user-duplicate.json",
+      "body": {
+        "param": {
+          "domain": "TEST",
+          "username": "api-resource-test-002",
+          "credential": "ChangeMe-TestOnly-2026!",
+          "Name": "API resource test 002 duplicate",
+          "Description": "Negative test that repeats the username created without resources",
+          "UserType": 30,
+          "Creator": "TIMM API deployment test",
+          "InternalBusinessOwner": "Replace with internal owner",
+          "InternalBusinessOwnerPhone": "+00000000001",
+          "InternalBusinessOwnerEmail": "internal.owner@example.invalid",
+          "PartnerName": "Replace with partner",
+          "PartnerPhone": "+00000000002",
+          "PartnerEmail": "partner@example.invalid"
+        }
+      },
+      "params": {}
+    }
+  ],
+  "has_existing_response": true,
+  "existing_response": {
+    "exec_code": -2105,
+    "exec_msg": "The username already exists in the default environment.",
+    "resultset": {
+      "User": ""
+    }
+  }
+});
+
+window._APIS_DATA = window._APIS_DATA.filter(function(api) {
+  return api.slug !== "System_Config_API_List";
+});
+
+window._APIS_DATA.push({
+  "name": "System/Config/API/List",
+  "slug": "System_Config_API_List",
+  "url": "TIMM/v1/System/Config/API/List",
+  "description": "This method can be called to return the configured TIMM API route definitions. The array length, order, and entries depend on the API catalog in the target environment.",
+  "verbs": [
+    {"verb": "GET", "description": "Returns the configured API route definitions"}
+  ],
+  "params": [],
+  "reply_fields": [
+    {"name": "exec_code", "type": "Integer", "description": "Execution code"},
+    {"name": "exec_msg", "type": "String", "description": "Execution message"},
+    {"name": "resultset", "type": "Object Array", "description": "Configured API route definitions"},
+    {"name": "resultset[].APIID", "type": "String", "description": "Internal identifier of the configured API"},
+    {"name": "resultset[].APIZone", "type": "String", "description": "Logical API zone or category"},
+    {"name": "resultset[].Description", "type": "String", "description": "Human-readable purpose of the API"},
+    {"name": "resultset[].HTTPVerb", "type": "String", "description": "HTTP method configured for the route"},
+    {"name": "resultset[].INConfigRequired", "type": "String", "description": "Intelligent Network configuration requirement flag; 0 means not required"},
+    {"name": "resultset[].OMConfigRequired", "type": "String", "description": "Orange Money configuration requirement flag; 0 means not required"},
+    {"name": "resultset[].Route", "type": "String", "description": "Relative path of the configured API route"}
+  ],
+  "result_type": "array",
+  "mock_response": {
+    "exec_code": 0,
+    "exec_msg": "Success",
+    "resultset": [
+      {
+        "APIID": "90",
+        "APIZone": "COMMON",
+        "Description": "Currency",
+        "HTTPVerb": "GET",
+        "INConfigRequired": "0",
+        "OMConfigRequired": "0",
+        "Route": "/TIMM/v1/COMMON/Currency/List"
+      },
+      {
+        "APIID": "92",
+        "APIZone": "COMMON",
+        "Description": "Currency",
+        "HTTPVerb": "POST",
+        "INConfigRequired": "0",
+        "OMConfigRequired": "0",
+        "Route": "/TIMM/v1/COMMON/Currency/Exchange"
+      },
+      {
+        "APIID": "120",
+        "APIZone": "CRM",
+        "Description": "Occupation Information List",
+        "HTTPVerb": "GET",
+        "INConfigRequired": "0",
+        "OMConfigRequired": "0",
+        "Route": "/TIMM/v1/CRM/Types/Occupation"
+      }
+    ]
+  },
+  "error_response": {
+    "exec_code": -1002,
+    "exec_msg": "Authorization failed"
+  },
+  "curl_commands": [
+    {
+      "verb": "GET",
+      "description": "Returns the configured API route definitions",
+      "command": "curl.exe --silent --show-error --request GET \\\n  --header \"Accept: application/json\" \\\n  \"http://192.168.19.139:11000/TIMM/v1/System/Config/API/List?auth:user=api_user&auth:pwd=api_password\"",
+      "body": null,
+      "params": {}
+    }
+  ],
+  "has_existing_response": true,
+  "existing_response": {
+    "exec_code": 0,
+    "exec_msg": "Success",
+    "resultset": [
+      {
+        "APIID": "90",
+        "APIZone": "COMMON",
+        "Description": "Currency",
+        "HTTPVerb": "GET",
+        "INConfigRequired": "0",
+        "OMConfigRequired": "0",
+        "Route": "/TIMM/v1/COMMON/Currency/List"
+      },
+      {
+        "APIID": "92",
+        "APIZone": "COMMON",
+        "Description": "Currency",
+        "HTTPVerb": "POST",
+        "INConfigRequired": "0",
+        "OMConfigRequired": "0",
+        "Route": "/TIMM/v1/COMMON/Currency/Exchange"
+      },
+      {
+        "APIID": "120",
+        "APIZone": "CRM",
+        "Description": "Occupation Information List",
+        "HTTPVerb": "GET",
+        "INConfigRequired": "0",
+        "OMConfigRequired": "0",
+        "Route": "/TIMM/v1/CRM/Types/Occupation"
+      }
+    ]
   }
 });
 </script>

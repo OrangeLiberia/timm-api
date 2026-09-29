@@ -35,7 +35,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 |-----------|------|----------|-------------|
 | `METERID` | `String` | ✅ Required | Unique identifier of the Meter we are topping up |
 | `CURRENCY` | `EnumString` | ✅ Required | Identification of Wallet currency being charged: USD, LRD |
-| `WALLET` | `EnumString` | ✅ Required | Defines in what Wallet the action should take place: Main, Commission or Loyalty. Default: Main |
+| `WALLET` | `EnumString` | ⬜ Optional | Defines in what Wallet the action should take place: MAIN, BONUS/LOYALTY, COMMISSION, SUSPENSE, BUSINESS. Default: MAIN |
 | `MSISDN` | `String` | ✅ Required | Payer Phone Number on whose account the money should be deducted. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx Or, if pseudonymization is enabled for the connection, encrypted X-MSISDN header can be passed in directly. |
 | `AMOUNT` | `Decimal` | ✅ Required | Amount to be charged to Subscriber |
 | `EXTERNALID` | `String` | ⬜ Optional | Reference’s to unique id of the caller transaction |

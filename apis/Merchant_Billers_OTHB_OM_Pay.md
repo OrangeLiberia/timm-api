@@ -35,6 +35,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 |-----------|------|----------|-------------|
 | `MSISDN` | `String` | ✅ Required | Payer Phone Number on whose account the money should be deducted. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx Or, if pseudonymization is enabled for the connection, encrypted X-MSISDN header can be passed in directly. |
 | `Currency` | `String` | ✅ Required | Identification of Wallet being charged: - USD, LD |
+| `WALLET` | `EnumString` | ⬜ Optional | Defines in what Wallet the action should take place: MAIN, BONUS/LOYALTY, COMMISSION, SUSPENSE, BUSINESS. Default: MAIN |
 | `Amount` | `Decimal` | ✅ Required | Amount to be charged to Subscriber |
 | `MerchPIN` | `String` | ✅ Required | Merchant PIN (Optional) (by default, PIN is not required since it’s configured on the authentication session) |
 | `BillerId` | `String` | ✅ Required | BillerID that should be payed. |

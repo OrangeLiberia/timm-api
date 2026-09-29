@@ -27,6 +27,12 @@ Authentication credentials must be provided on every request, either as a JSON `
 {"auth": {"user": "<username>", "pwd": "<password>"}}
 ```
 
+## Request Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `WALLET` | `EnumString` | ⬜ Optional | Defines in what Wallet the action should take place: MAIN, BONUS/LOYALTY, COMMISSION, SUSPENSE, BUSINESS. Default: MAIN |
+
 ## Mock Responses
 
 ### GET — Get resource
