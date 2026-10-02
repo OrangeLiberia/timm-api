@@ -18,7 +18,7 @@ TIMM/v1/Invoicing/Invoice/Details
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `http://192.168.19.139:11000/TIMM/v1/Invoicing/Invoice/Details` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Invoicing/Invoice/Details` |
 | Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Invoicing/Invoice/Details` |
 
 ## Authentication
@@ -166,12 +166,12 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ```bash
 curl -k -X GET \
-  "http://192.168.19.139:11000/TIMM/v1/Invoicing/Invoice/Details?auth:user=api_user&auth:pwd=api_password&param:Period=202602&param:DocType=NFT&param:AccountID=1007100014900"
+  "https://APIDEV.Orange.com.lr/TIMM/v1/Invoicing/Invoice/Details?auth:user=api_user&auth:pwd=api_password&param:Period=202602&param:DocType=NFT&param:AccountID=1007100014900"
 ```
 
 ### GET — Returns invoice details with optional parameters
 
 ```bash
 curl -k -X GET \
-  "http://192.168.19.139:11000/TIMM/v1/Invoicing/Invoice/Details?auth:user=api_user&auth:pwd=api_password&param:Period=202602&param:DocType=NFT&param:AccountID=1007100014900&param:Lang=En&param:Tax=0.18"
+  "https://APIDEV.Orange.com.lr/TIMM/v1/Invoicing/Invoice/Details?auth:user=api_user&auth:pwd=api_password&param:Period=202602&param:DocType=NFT&param:AccountID=1007100014900&param:Lang=En&param:Tax=0.18"
 ```

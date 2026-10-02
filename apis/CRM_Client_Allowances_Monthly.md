@@ -18,8 +18,9 @@ TIMM/v1/CRM/Client/Allowances/Monthly
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://api.example.invalid/TIMM/v1/CRM/Client/Allowances/Monthly` |
-| Dev/Test   | `http://api-dev.example.invalid:11000/TIMM/v1/CRM/Client/Allowances/Monthly` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/CRM/Client/Allowances/Monthly` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/CRM/Client/Allowances/Monthly` |
+
 
 Replace the example host with the base URL for the target TIMM.API environment.
 
@@ -97,7 +98,7 @@ No endpoint-specific error response was supplied. The invalid-period test must r
 ```bash
 curl.exe --silent --show-error --request GET \
   --header "Accept: application/json" \
-  "http://api-dev.example.invalid:11000/TIMM/v1/CRM/Client/Allowances/Monthly?auth:user=api_user&auth:pwd=api_password"
+  "https://APIDEV.Orange.com.lr/TIMM/v1/CRM/Client/Allowances/Monthly?auth:user=api_user&auth:pwd=api_password"
 ```
 
 ### GET — Use an explicit period
@@ -105,5 +106,5 @@ curl.exe --silent --show-error --request GET \
 ```bash
 curl.exe --silent --show-error --request GET \
   --header "Accept: application/json" \
-  "http://api-dev.example.invalid:11000/TIMM/v1/CRM/Client/Allowances/Monthly?Period=2026-05-01&auth:user=api_user&auth:pwd=api_password"
+  "https://APIDEV.Orange.com.lr/TIMM/v1/CRM/Client/Allowances/Monthly?Period=2026-05-01&auth:user=api_user&auth:pwd=api_password"
 ```

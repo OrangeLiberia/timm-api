@@ -18,8 +18,8 @@ This method updates the email address on one CRM client address and returns the 
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://api.example.invalid/TIMM/v1/CRM/Client/Details/Email` |
-| Dev/Test | `https://api-dev.example.invalid:11003/TIMM/v1/CRM/Client/Details/Email` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/CRM/Client/Details/Email` |
+| Dev/Test | `https://APIDEV.Orange.com.lr/TIMM/v1/CRM/Client/Details/Email` |
 
 Replace the example host with the target TIMM.API server. Credentials, identifiers, and email addresses in examples are placeholders or synthetic values.
 
@@ -255,32 +255,7 @@ HTTP statuses and complete response bodies for these additional outcomes remain 
 
 ## cURL Examples
 
-Save the first request example as `update-client-email.json`, using a disposable test client's identifier and an email you intend to persist.
-
 ```powershell
-curl.exe --silent --show-error --include --request PUT --header "Accept: application/json" --header "Content-Type: application/json" --data-binary "@update-client-email.json" "https://api-dev.example.invalid:11003/TIMM/v1/CRM/Client/Details/Email?auth:user=api_user&auth:pwd=api_password"
+curl.exe --silent --show-error --include --request PUT --header "Accept: application/json" --header "Content-Type: application/json" --data-binary "@update-client-email.json" "https://APIDEV.Orange.com.lr/TIMM/v1/CRM/Client/Details/Email?auth:user=api_user&auth:pwd=api_password"
 ```
 
-Run the same command again to test the repeat behavior: expect HTTP `200` / `exec_code: 200`, with `PreviousEmail` equal to `ClientEmail`.
-
-Certificate verification is enabled by default in this example. The supplied test run used `-SkipCertificateCheck`; the cURL equivalent is `--insecure` / `-k`. Use a bypass only for a trusted test server, not as a normal production setting. URL query credentials may appear in command history or infrastructure logs; protect those records.
-
-## Test Results
-
-The user-supplied run on 24 September 2026 executed nine scenarios: eight passed the script's expectations and one reported an expectation mismatch.
-
-| Scenario | HTTP | Script expected | Actual `exec_code` | Recorded result |
-|----------|------|-----------------|--------------------|-----------------|
-| 01 — ClientID missing | `400` | `-1003` | `-1003` | PASS |
-| 02 — Email missing | `400` | `-1003` | `-1003` | PASS |
-| 03 — ClientID zero | `200` | `-1004` | `-1004` | PASS |
-| 04 — Invalid email | `200` | `-1008` | `-1008` | PASS |
-| 05 — Empty email | `400` | `-1008` | `-1003` | FAIL — expectation mismatch |
-| 06 — Email too long | `200` | `-1009` | `-1009` | PASS |
-| 07 — Client not found | `200` | `-1005` | `-1005` | PASS |
-| 09 — Update email | `200` | `200` | `200` | PASS |
-| 10 — Repeat same email | `200` | `200` | `200` | PASS |
-
-Scenario 05 documents the API-layer behavior actually observed: an empty `Email` is treated as missing. It is not presented as a passing test or as `-1008`. This documentation update does not change the test script's expectation or the deployed API.
-
-Scenario 08 (ambiguous addresses), explicit `ClientAddressID` selection, and internal-error handling were not tested in this run.

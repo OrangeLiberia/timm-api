@@ -18,8 +18,8 @@ This method returns client details and one associated account/address record usi
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://api.example.invalid/TIMM/v1/CRM/Client/Details` |
-| Dev/Test | `http://api-dev.example.invalid:11000/TIMM/v1/CRM/Client/Details` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/CRM/Client/Details` |
+| Dev/Test | `http://APIDEV.Orange.com.lr/TIMM/v1/CRM/Client/Details` |
 
 Replace the example host with the URL for the target TIMM.API environment. Hosts, credentials, and personal details in the examples are placeholders or synthetic values.
 
@@ -179,7 +179,7 @@ The following examples use synthetic client IDs. Replace them with an existing t
 ```bash
 curl.exe --silent --show-error --include --request GET \
   --header "Accept: application/json" \
-  "http://api-dev.example.invalid:11000/TIMM/v1/CRM/Client/Details?auth:user=api_user&auth:pwd=api_password&ClientID=1000000000001&Token="
+  "https://APIDEV.Orange.com.lr/TIMM/v1/CRM/Client/Details?auth:user=api_user&auth:pwd=api_password&ClientID=1000000000001&Token="
 ```
 
 Expected: HTTP `200`, `exec_code: 200`, with a single-object `resultset`.
@@ -189,7 +189,7 @@ Expected: HTTP `200`, `exec_code: 200`, with a single-object `resultset`.
 ```bash
 curl.exe --silent --show-error --include --request GET \
   --header "Accept: application/json" \
-  "http://api-dev.example.invalid:11000/TIMM/v1/CRM/Client/Details?auth:user=api_user&auth:pwd=api_password&ClientID=0&Token="
+  "https://APIDEV.Orange.com.lr/TIMM/v1/CRM/Client/Details?auth:user=api_user&auth:pwd=api_password&ClientID=0&Token="
 ```
 
 Expected: HTTP `200`, `exec_code: -1004`.
@@ -222,16 +222,3 @@ curl.exe --silent --show-error --include --request GET \
   "http://api-dev.example.invalid:11000/TIMM/v1/CRM/Client/Details?auth:user=api_user&auth:pwd=api_password&ClientID=1000000000001"
 ```
 
-Expected: HTTP `200`, `exec_code: 200`, with the same response shape as the request that supplies `Token`.
-
-## Test Results
-
-All five GET scenarios passed in the user-supplied run on 24 September 2026.
-
-| Scenario | HTTP Status | Expected `exec_code` | Actual `exec_code` | Result |
-|----------|-------------|----------------------|--------------------|--------|
-| Existing client | `200` | `200` | `200` | PASS |
-| ClientID is zero | `200` | `-1004` | `-1004` | PASS |
-| ClientID is missing | `400` | `-1003` | `-1003` | PASS |
-| Client not found | `200` | `-1005` | `-1005` | PASS |
-| Token omitted | `200` | `200` | `200` | PASS |

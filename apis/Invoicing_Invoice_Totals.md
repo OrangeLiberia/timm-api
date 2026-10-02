@@ -18,7 +18,7 @@ TIMM/v1/Invoicing/Invoice/Totals
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `http://192.168.19.139:11000/TIMM/v1/Invoicing/Invoice/Totals` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Invoicing/Invoice/Totals` |
 | Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Invoicing/Invoice/Totals` |
 
 ## Authentication
@@ -194,5 +194,5 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ```bash
 curl -k -X GET \
-  "http://192.168.19.139:11000/TIMM/v1/Invoicing/Invoice/Totals?auth:user=api_user&auth:pwd=api_password&param:Period=202602&param:DocType=NFT"
+  "https://APIDEV.Orange.com.lr/TIMM/v1/Invoicing/Invoice/Totals?auth:user=api_user&auth:pwd=api_password&param:Period=202602&param:DocType=NFT"
 ```
