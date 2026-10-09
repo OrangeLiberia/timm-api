@@ -38,13 +38,13 @@ Authentication credentials must be provided on every request, either as a JSON `
 | `CURRENCY` | `String` | ✅ Required | Identification of Wallet being charged: |
 | `AMOUNT` | `Decimal` | ✅ Required | Amount to be charged to Subscriber |
 | `EXTERNALID` | `String` | ✅ Required | Reference’s to unique id of the caller transaction WALLET |
-| `Enum` | `String` | ⬜ Optional | Defines in what Wallet the action should take place: Main, Commission or Loyalty Default: Main USERTYPE |
-| `Enum` | `String` | ⬜ Optional | Defines in what user type the action should take place: Subscriber, Channel, Operator or Other Default: Subscriber |
-| `RecipentMSISDN` | `String` | ⬜ Optional | Recipient Phone Number on whose account the equal amount will be transferred to. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx RecipentWallet |
-| `Enum` | `String` | ⬜ Optional | Defines in what Wallet the action should take place: Main, Commission or Loyalty Default: Main |
-| `RecipentSubWallet` | `String` | ⬜ Optional | Each identifier of the Sub Wallet belonging to the Recipient that should be used for this transaction. Sub Wallet list is configured for each user and mapping. (WalletZ1, WalletY2,, WalletX3, … ) |
-| `RecipentAmount` | `String` | ⬜ Optional | Amount to be charged to be transferred to the RecipentMSISDN. If not provided, Amount will be used. BlockSMS |
-| `Enum` | `String` | ⬜ Optional | PAYEE – Do not send notification to Payee [DEFAULT] - USD, LD PAYER – Do not send SMS notification to Payer BOTH – Do not send SMS |
+| `WALLET` | `String` | ⬜ Optional | Defines in what Wallet the action should take place: Main, Commission or Loyalty Default: Main USERTYPE |
+| `USERTYPE` | `String` | ⬜ Optional | Defines in what user type the action should take place: Subscriber, Channel, Operator or Other Default: Subscriber |
+| `RECIPENTMSISDN` | `String` | ⬜ Optional | Recipient Phone Number on whose account the equal amount will be transferred to. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx RecipentWallet |
+| `RECIPENTWALLET` | `String` | ⬜ Optional | Defines in what Wallet the action should take place: Main, Commission or Loyalty Default: Main |
+| `AMOUNT` | `String` | ⬜ Optional | Amount to be charged to be transferred to the RecipentMSISDN. If not provided, Amount will be used. BlockSMS |
+| `ROLLBACK` | `String` | ⬜ Optional | Enable or Disable Rollback when operation fails . If not provided, Rollback will be enabled |
+| `BLOCKSMS` | `String` | ⬜ Optional | PAYEE – Do not send notification to Payee [DEFAULT] - USD, LD PAYER – Do not send SMS notification to Payer BOTH – Do not send SMS |
 | `Comment` | `String` | ⬜ Optional | Comment for the action being performed |
 
 ## Mock Responses

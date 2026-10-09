@@ -38,6 +38,13 @@ Authentication credentials must be provided on every request, either as a JSON `
 | `MSISDN` | `String` | Required | Phone Number on whose account you want to query the Orange Money Balance. Phone number can have a size of either 10 or 12 digits, according to the following formats: 077xxxxxx Or 23177xxxxxxx Or, if pseudonymization is enabled for the connection, encrypted XMSISDN header can be passed in directly. |
 | `CURRENCY` | `EnumString` | Required | Identification of Wallet currency being queried: `USD`, `LRD`, `ALL` |
 | `WALLETLST` | `String` | Required | Comma separated list of wallets to be queried, or `ALL` to query all available wallets |
+| `PIN` | `String` | Optional | Subscriber Orange Money PIN. When supplied, it is checked before the balance enquiry. When omitted, no PIN check is requested. Preserve it as a string |
+
+## Processing Rules
+
+- `PIN` is optional. Supplying it requests PIN validation; omitting it preserves the balance enquiry without a supplied PIN check.
+- A failed PIN check returns an error such as `-1110` (`Invalid PIN`); a supplied invalid PIN is not silently ignored.
+- PIN is a request parameter and is not added to the response fields.
 
 ## Response Fields
 
@@ -203,3 +210,23 @@ curl -k -X GET \
   }
 }'
 ```
+
+
+### GET — USD wallets with PIN validation
+
+```bash
+curl -X GET \
+  "https://APIDEV.Orange.com.lr/TIMM/v2/Subscriber/Balance/OM" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "auth": {"user": "api_user", "pwd": "api_password"},
+  "param": {
+    "MSISDN": "0777777588",
+    "CURRENCY": "USD",
+    "WALLETLST": "MAIN,LOYALTY",
+    "PIN": "<subscriber_pin>"
+  }
+}'
+```
+
+Replace the PIN placeholder with the subscriber PIN. The examples above without `PIN` remain valid.
