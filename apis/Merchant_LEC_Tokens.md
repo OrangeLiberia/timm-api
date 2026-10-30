@@ -18,8 +18,8 @@ This method allows the subscriber to get the LEC tokens.
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Merchant/LEC/Tokens` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Merchant/LEC/Tokens` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Merchant/LEC/Tokens` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Merchant/LEC/Tokens` |
 
 ## Authentication
 

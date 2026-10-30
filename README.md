@@ -11,7 +11,7 @@ This repository contains the full documentation for the **TIMM (Telecom Integrat
 ### Interactive Explorer
 
 Open [`api_explorer.html`](https://orangeliberia.github.io/timm-api/api_explorer.html) in any browser to:
-- Browse all 228 APIs grouped by category
+- Browse documented APIs grouped by category
 - Search APIs by name
 - Fill in parameters interactively
 - Generate `curl` commands instantly
@@ -36,7 +36,7 @@ Open [`api_explorer.html`](https://orangeliberia.github.io/timm-api/api_explorer
 └── apis/
     ├── Authenticate_API_Token.md
     ├── PRV_Features_CallerRingBackTone.md
-    ├── ... (228 API files total)
+    ├── ... (individual endpoint documentation)
 ```
 
 ---
@@ -73,6 +73,7 @@ Every API call requires authentication credentials, provided via one of these me
 | Category | Description | # APIs |
 |----------|-------------|--------|
 | `Authenticate` | Token-based authentication | 1 |
+| `Admin` | Account validation, password change, permissions and Login/Logoff events | 5 |
 | `PRV` | Provisioning — network features, access, packages | 8 |
 | `Resource` | SIM and MSISDN status | 2 |
 | `COMMON` | Currency utilities | 2 |
@@ -93,6 +94,8 @@ Every API call requires authentication credentials, provided via one of these me
 | `Poll` | Polling and voting | 4 |
 | `Event` | Event ticketing | 8 |
 | `System` / `External` | Redirect utilities | 2 |
+
+The [Admin account deployment guide](sql/admin-api/README.md) covers [account validation](apis/Admin_Account_Validate.md), [password change](apis/Admin_Account_Password_Change.md), [permissions](apis/Admin_Account_Permissions.md), [Login](apis/Admin_Account_Login.md), and [Logoff](apis/Admin_Account_Logoff.md). These routes are documented from the prepared SQL contract; target deployment and live HTTP behavior remain unverified. The explorer calculates its current catalog totals from its embedded entries.
 
 ---
 

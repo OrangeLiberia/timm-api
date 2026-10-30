@@ -18,7 +18,7 @@ This method allows the Subscriber to see their previous purchased LEC tokens.
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.210:11003/TIMM/v1/Subscriber/LEC/Tokens` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Subscriber/LEC/Tokens` |
 | Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/LEC/Tokens` |
 
 ## Authentication
@@ -105,12 +105,12 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ```bash
 curl -k -X GET \
-  "https://192.168.19.210:11003/TIMM/v1/Subscriber/LEC/Tokens?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0775144471"
+  "https://192.168.19.200:11003/TIMM/v1/Subscriber/LEC/Tokens?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0775144471"
 ```
 
 ### GET — List all the subscribers last LEC tokens.
 
 ```bash
 curl -k -X GET \
-  "https://192.168.19.210:11003/TIMM/v1/Subscriber/LEC/Tokens?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0777851990"
+  "https://192.168.19.200:11003/TIMM/v1/Subscriber/LEC/Tokens?auth:user=api_user&auth:pwd=api_password&param:MSISDN=0777851990"
 ```

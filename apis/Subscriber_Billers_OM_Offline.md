@@ -18,8 +18,8 @@ This method will allow to get information regarding the biller products details 
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Subscriber/Billers/OM/Offline` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Subscriber/Billers/OM/Offline` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Subscriber/Billers/OM/Offline` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/Billers/OM/Offline` |
 
 ## Authentication
 

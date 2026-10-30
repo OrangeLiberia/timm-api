@@ -18,7 +18,7 @@ TIMM/v1/CRM/Subscriber/Language
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `http://192.168.19.139:11000/TIMM/v1/CRM/Subscriber/Language` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/CRM/Subscriber/Language` |
 | Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/CRM/Subscriber/Language` |
 
 ## Authentication
@@ -92,7 +92,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ```bash
 curl -k -X POST \
-  "http://192.168.19.139:11000/TIMM/v1/CRM/Subscriber/Language" \
+  "https://192.168.19.200:11003/TIMM/v1/CRM/Subscriber/Language" \
   -H "Content-Type: application/json" \
   -d '{
   "auth": {
@@ -106,7 +106,7 @@ curl -k -X POST \
 
 ```bash
 curl -k -X POST \
-  "http://192.168.19.139:11000/TIMM/v1/CRM/Subscriber/Language" \
+  "https://192.168.19.200:11003/TIMM/v1/CRM/Subscriber/Language" \
   -H "Content-Type: application/json" \
   -d '{
   "auth": {
@@ -123,7 +123,7 @@ curl -k -X POST \
 
 ```bash
 curl -k -X POST \
-  "http://192.168.19.139:11000/TIMM/v1/CRM/Subscriber/Language" \
+  "https://192.168.19.200:11003/TIMM/v1/CRM/Subscriber/Language" \
   -H "Content-Type: application/json" \
   -d '{
   "auth": {
@@ -141,7 +141,7 @@ curl -k -X POST \
 
 ```bash
 curl -k -X POST \
-  "http://192.168.19.139:11000/TIMM/v1/CRM/Subscriber/Language" \
+  "https://192.168.19.200:11003/TIMM/v1/CRM/Subscriber/Language" \
   -H "Content-Type: application/json" \
   -d '{
   "auth": {

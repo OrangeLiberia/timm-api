@@ -18,8 +18,8 @@ This method retrieves all events tickets configured in the system, including the
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Event/Ticket/All` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Event/Ticket/All` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Event/Ticket/All` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Event/Ticket/All` |
 
 ## Authentication
 

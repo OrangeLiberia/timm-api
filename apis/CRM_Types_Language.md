@@ -18,7 +18,7 @@ TIMM/v1/CRM/Types/Language
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `http://192.168.19.210:11000/TIMM/v1/CRM/Types/Language` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/CRM/Types/Language` |
 | Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/CRM/Types/Language` |
 
 ## Authentication
@@ -111,5 +111,5 @@ Call the API:
 
 ```bash
 curl -k -d @auth.json -X GET \
-  "http://192.168.19.210:11000/TIMM/v1/CRM/Types/Language"
+  "https://192.168.19.200:11003/TIMM/v1/CRM/Types/Language"
 ```

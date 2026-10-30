@@ -19,8 +19,8 @@ This method is called to use (aka burn) a specific quantity of tickets for a sub
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Event/Ticket/Confirm` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Event/Ticket/Confirm` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Event/Ticket/Confirm` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Event/Ticket/Confirm` |
 
 ## Authentication
 

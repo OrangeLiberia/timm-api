@@ -20,8 +20,8 @@ This method allows the agent to add their favorite meter numbers and tie it to a
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Agent/LEC/Meter/Favorite` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Agent/LEC/Meter/Favorite` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Agent/LEC/Meter/Favorite` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Agent/LEC/Meter/Favorite` |
 
 ## Authentication
 

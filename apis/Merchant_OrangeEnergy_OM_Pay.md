@@ -20,8 +20,8 @@ This method will allow a Merchant to top up and Orange Energy Meter using the Or
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Merchant/OrangeEnergy/Meter/Favorite` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Merchant/OrangeEnergy/Meter/Favorite` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Merchant/OrangeEnergy/Meter/Favorite` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Merchant/OrangeEnergy/Meter/Favorite` |
 
 ## Authentication
 

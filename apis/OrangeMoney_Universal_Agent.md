@@ -18,8 +18,8 @@ This method returning the details for a Universal Code.
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/OM/Universal/Agent` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/OM/Universal/Agent` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/OM/Universal/Agent` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/OM/Universal/Agent` |
 
 ## Authentication
 

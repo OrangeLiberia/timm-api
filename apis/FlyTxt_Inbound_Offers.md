@@ -18,7 +18,7 @@ INT/v1/Flytxt/Inbound/Offers
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `http://192.168.19.12:11000/INT/v1/Flytxt/Inbound/Offers` |
+| Production | `https://192.168.19.200:11003/INT/v1/Flytxt/Inbound/Offers` |
 | Dev/Test   | `https://APIDEV.Orange.com.lr/INT/v1/Flytxt/Inbound/Offers` |
 
 ## Authentication
@@ -171,5 +171,5 @@ Authentication credentials must be provided on every request, either as URL quer
 
 ```bash
 curl -k -X GET \
-  "http://192.168.19.12:11000/INT/v1/Flytxt/Inbound/Offers?auth:user=api_user&auth:pwd=api_password&param:msisdn=0777777588"
+  "https://192.168.19.200:11003/INT/v1/Flytxt/Inbound/Offers?auth:user=api_user&auth:pwd=api_password&param:msisdn=0777777588"
 ```

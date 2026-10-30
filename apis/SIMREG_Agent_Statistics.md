@@ -18,8 +18,8 @@ This method returns the registration statistics of the Agent. The statistics are
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/SIMREG/Agent/Statistics` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/SIMREG/Agent/Statistics` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/SIMREG/Agent/Statistics` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/SIMREG/Agent/Statistics` |
 
 ## Authentication
 

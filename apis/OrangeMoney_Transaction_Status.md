@@ -18,8 +18,8 @@ This method allows to check the status of a transaction.
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/OM/Transaction/Status` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/OM/Transaction/Status` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/OM/Transaction/Status` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/OM/Transaction/Status` |
 
 ## Authentication
 

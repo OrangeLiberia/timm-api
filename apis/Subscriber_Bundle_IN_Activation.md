@@ -18,8 +18,8 @@ This method is called to notify the API Gateway and configured listeners that a 
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Event/Subscriber/Bundle/IN/Activation` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Event/Subscriber/Bundle/IN/Activation` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Event/Subscriber/Bundle/IN/Activation` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Event/Subscriber/Bundle/IN/Activation` |
 
 ## Authentication
 

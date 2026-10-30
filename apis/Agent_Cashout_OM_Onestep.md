@@ -18,8 +18,8 @@ This method will allows to initiate a cashtout to an agent.
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Agent/Cashout/OM/Onestep` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Agent/Cashout/OM/Onestep` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Agent/Cashout/OM/Onestep` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Agent/Cashout/OM/Onestep` |
 
 ## Authentication
 

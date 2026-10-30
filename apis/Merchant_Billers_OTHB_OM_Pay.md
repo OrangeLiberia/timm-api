@@ -18,8 +18,8 @@ This method will allow a merchant to pay a to a Biller using his Orange Money ac
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Merchant/Billers/OTHB/OM/Pay` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Merchant/Billers/OTHB/OM/Pay` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Merchant/Billers/OTHB/OM/Pay` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Merchant/Billers/OTHB/OM/Pay` |
 
 ## Authentication
 

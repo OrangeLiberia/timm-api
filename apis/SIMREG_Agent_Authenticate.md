@@ -18,8 +18,8 @@ This method authenticates if the pair IMEI and ICCI is allowed to use the SIMREG
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/SIMREG/Agent/Authenticate` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/SIMREG/Agent/Authenticate` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/SIMREG/Agent/Authenticate` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/SIMREG/Agent/Authenticate` |
 
 ## Authentication
 

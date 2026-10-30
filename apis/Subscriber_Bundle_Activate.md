@@ -18,10 +18,8 @@ This method activates a configured bundle for a subscriber or another recipient 
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://api.example.invalid/TIMM/v1/Subscriber/Bundle/Activate` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Subscriber/Bundle/Activate` |
 | Dev/Test | `https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/Bundle/Activate` |
-
-Replace the production example host with the configured production base URL.
 
 ## Authentication
 

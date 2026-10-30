@@ -18,7 +18,7 @@ TIMM/v1/OM/Subscriber/Bar
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `http://192.168.19.139:11100/TIMM/v1/OM/Subscriber/Bar` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/OM/Subscriber/Bar` |
 | Dev/Test | `http://192.168.19.139:11100/TIMM/v1/OM/Subscriber/Bar` |
 
 ## Authentication

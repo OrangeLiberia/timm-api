@@ -18,8 +18,8 @@ This method returns itemized invoice usage charges for an account and billing pe
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://api.example.invalid/TIMM/v1/Invoicing/Invoice/Details/Items` |
-| Dev/Test | `https://api-dev.example.invalid:11003/TIMM/v1/Invoicing/Invoice/Details/Items` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Invoicing/Invoice/Details/Items` |
+| Dev/Test | `https://APIDEV.Orange.com.lr/TIMM/v1/Invoicing/Invoice/Details/Items` |
 
 Replace the reserved example host with the approved TIMM.API server. Credentials, account identifiers, subscriber names and numbers in examples are placeholders or synthetic data.
 

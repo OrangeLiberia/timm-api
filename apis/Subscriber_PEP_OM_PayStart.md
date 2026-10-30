@@ -18,8 +18,8 @@ This method will allow a subscriber to pay to one or more Subscribers and or Mer
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Subscriber/PEP/OM/PayStart` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Subscriber/PEP/OM/PayStart` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Subscriber/PEP/OM/PayStart` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/PEP/OM/PayStart` |
 
 ## Authentication
 

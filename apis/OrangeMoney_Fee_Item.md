@@ -18,8 +18,8 @@ This method returns the base item list of the available fees and their descripti
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/OM/Fee/Item/Base` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/OM/Fee/Item/Base` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/OM/Fee/Item/Base` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/OM/Fee/Item/Base` |
 
 ## Authentication
 

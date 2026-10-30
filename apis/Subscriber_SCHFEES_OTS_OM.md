@@ -18,8 +18,8 @@ This method will allow to get information regarding the available schools that a
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Subscriber/SCHFEES/OTS/OM` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Subscriber/SCHFEES/OTS/OM` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Subscriber/SCHFEES/OTS/OM` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/SCHFEES/OTS/OM` |
 
 ## Authentication
 

@@ -18,8 +18,8 @@ This method will allow a subscriber to pay to one Subscribers using his Orange M
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Subscriber/BNB/Outbound/OM/Pay` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Subscriber/BNB/Outbound/OM/Pay` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Subscriber/BNB/Outbound/OM/Pay` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/BNB/Outbound/OM/Pay` |
 
 ## Authentication
 

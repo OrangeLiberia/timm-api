@@ -18,7 +18,7 @@ TIMM/v1/CRM/PBX/Call/Answer
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `http://192.168.19.139:11000/TIMM/v1/CRM/PBX/Call/Answer` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/CRM/PBX/Call/Answer` |
 | Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/CRM/PBX/Call/Answer` |
 
 ## Authentication
@@ -88,7 +88,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ```bash
 curl -k -X POST \
-  "http://192.168.19.139:11000/TIMM/v1/CRM/PBX/Call/Answer" \
+  "https://192.168.19.200:11003/TIMM/v1/CRM/PBX/Call/Answer" \
   -H "Content-Type: application/json" \
   -d '{
   "auth": {
@@ -105,7 +105,7 @@ curl -k -X POST \
 
 ```bash
 curl -k -X POST \
-  "http://192.168.19.139:11000/TIMM/v1/CRM/PBX/Call/Answer" \
+  "https://192.168.19.200:11003/TIMM/v1/CRM/PBX/Call/Answer" \
   -H "Content-Type: application/json" \
   -d '{
   "auth": {
@@ -119,7 +119,7 @@ curl -k -X POST \
 
 ```bash
 curl -k -X POST \
-  "http://192.168.19.139:11000/TIMM/v1/CRM/PBX/Call/Answer" \
+  "https://192.168.19.200:11003/TIMM/v1/CRM/PBX/Call/Answer" \
   -H "Content-Type: application/json" \
   -d '{
   "auth": {

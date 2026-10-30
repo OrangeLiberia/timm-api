@@ -19,8 +19,8 @@ This method allows the registration of a subscriber to be updated..
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/SIMREG/Subscriber/Register/Update` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/SIMREG/Subscriber/Register/Update` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/SIMREG/Subscriber/Register/Update` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/SIMREG/Subscriber/Register/Update` |
 
 ## Authentication
 

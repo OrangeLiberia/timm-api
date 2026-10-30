@@ -18,8 +18,8 @@ This method is called to vote on a current Polls/Anwser or to get the previous c
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Event/Ticket/Details` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Event/Ticket/Details` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Event/Ticket/Details` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Event/Ticket/Details` |
 
 ## Authentication
 

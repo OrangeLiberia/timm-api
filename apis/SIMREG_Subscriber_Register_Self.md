@@ -18,8 +18,8 @@ This method allows the self registration of a subscriber.
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/SIMREG/Subscriber/Register/Self` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/SIMREG/Subscriber/Register/Self` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/SIMREG/Subscriber/Register/Self` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/SIMREG/Subscriber/Register/Self` |
 
 ## Authentication
 

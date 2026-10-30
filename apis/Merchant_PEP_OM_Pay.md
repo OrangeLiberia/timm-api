@@ -18,8 +18,8 @@ This method will allow a Merchant to pay to one or more Subscribers and or Merch
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Merchant/PEP/OM/Pay` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Merchant/PEP/OM/Pay` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Merchant/PEP/OM/Pay` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Merchant/PEP/OM/Pay` |
 
 ## Authentication
 

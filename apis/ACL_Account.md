@@ -18,10 +18,8 @@ This method returns the account and name when an account belongs to the specifie
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://api.example.invalid/TIMM/v1/ACL/Account` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/ACL/Account` |
 | Dev/Test | `https://APIDEV.Orange.com.lr/TIMM/v1/ACL/Account` |
-
-Replace the production example host with the configured production base URL.
 
 ## Authentication
 

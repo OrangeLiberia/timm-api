@@ -18,7 +18,7 @@ TIMM/v1/CRM/Subscriber/Classification/Rate
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `http://192.168.19.139:11000/TIMM/v1/CRM/Subscriber/Classification/Rate` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/CRM/Subscriber/Classification/Rate` |
 | Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/CRM/Subscriber/Classification/Rate` |
 
 ## Authentication
@@ -92,7 +92,7 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ```bash
 curl -k -X GET \
-  "http://192.168.19.139:11000/TIMM/v1/CRM/Subscriber/Classification/Rate" \
+  "https://192.168.19.200:11003/TIMM/v1/CRM/Subscriber/Classification/Rate" \
   -H "Content-Type: application/json" \
   -d '{
   "auth": {

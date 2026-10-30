@@ -18,8 +18,8 @@ This method will allow a Merchant to initiate a Cashout to a subscriber. The Sub
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Merchant/Balance/Cashout` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Merchant/Balance/Cashout` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Merchant/Balance/Cashout` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Merchant/Balance/Cashout` |
 
 ## Authentication
 

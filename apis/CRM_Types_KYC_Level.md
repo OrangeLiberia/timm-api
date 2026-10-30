@@ -20,7 +20,7 @@ TIMM/v1/CRM/Types/KYC/Level
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.210:11003/TIMM/v1/CRM/Types/KYC/Level` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/CRM/Types/KYC/Level` |
 | Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/CRM/Types/KYC/Level` |
 
 ## Authentication
@@ -96,5 +96,5 @@ Authentication credentials must be provided on every request, either as a JSON `
 
 ```bash
 curl -k -X GET \
-  "https://192.168.19.210:11003/TIMM/v1/CRM/Types/KYC/Level?auth:user=api_user&auth:pwd=api_password"
+  "https://192.168.19.200:11003/TIMM/v1/CRM/Types/KYC/Level?auth:user=api_user&auth:pwd=api_password"
 ```

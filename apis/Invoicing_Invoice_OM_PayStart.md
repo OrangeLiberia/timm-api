@@ -18,8 +18,8 @@ This method will allow a subscriber to start the payment on the billers. A reque
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Subscriber/Billers/OM/Pay` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Subscriber/Billers/OM/Pay` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Invoicing/Invoice/OM/PayStart` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/Billers/OM/Pay` |
 
 ## Authentication
 

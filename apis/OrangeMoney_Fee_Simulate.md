@@ -18,8 +18,8 @@ This method executes a simulation of one of the events returning details about t
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/OM/Fee/Simulate` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/OM/Fee/Simulate` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/OM/Fee/Simulate` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/OM/Fee/Simulate` |
 
 ## Authentication
 

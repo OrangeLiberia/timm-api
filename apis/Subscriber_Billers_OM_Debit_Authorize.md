@@ -19,8 +19,8 @@ This method instigates Subscriber to get approval the consent from the auto debi
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Subscriber/Billers/OM/Debit/Authorize` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Subscriber/Billers/OM/Debit/Authorize` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Subscriber/Billers/OM/Debit/Authorize` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/Billers/OM/Debit/Authorize` |
 
 ## Authentication
 

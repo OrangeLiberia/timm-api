@@ -20,8 +20,8 @@ This method allows the Merchant to add, remove, get a Subscribers favorite meter
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Merchant/LEC/Meter/Favorite` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Merchant/LEC/Meter/Favorite` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Merchant/LEC/Meter/Favorite` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Merchant/LEC/Meter/Favorite` |
 
 ## Authentication
 

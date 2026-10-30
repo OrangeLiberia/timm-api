@@ -19,8 +19,8 @@ This method allows an Orange Liberia subscriber registration to be upgraded.
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/SIMREG/Subscriber/Register/Upgrade` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/SIMREG/Subscriber/Register/Upgrade` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/SIMREG/Subscriber/Register/Upgrade` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/SIMREG/Subscriber/Register/Upgrade` |
 
 ## Authentication
 

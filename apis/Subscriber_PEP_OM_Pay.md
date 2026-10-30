@@ -18,8 +18,8 @@ This method will allow a subscriber to pay to one or more Subscribers and or Mer
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Subscriber/PEP/OM/Pay` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Subscriber/PEP/OM/Pay` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Subscriber/PEP/OM/Pay` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/PEP/OM/Pay` |
 
 ## Authentication
 

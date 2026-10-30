@@ -18,8 +18,8 @@ This method will allow a subscriber to pay a to a Government School Fees using h
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Subscriber/SCHFEES/OM/Pay` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Subscriber/SCHFEES/OM/Pay` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Subscriber/SCHFEES/OM/Pay` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Subscriber/SCHFEES/OM/Pay` |
 
 ## Authentication
 

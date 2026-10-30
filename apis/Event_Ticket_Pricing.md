@@ -19,8 +19,8 @@ This method is called to either GET the pricing details of a ticket OR to calcul
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Event/Ticket/Pricing` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Event/Ticket/Pricing` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Event/Ticket/Pricing` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Event/Ticket/Pricing` |
 
 ## Authentication
 

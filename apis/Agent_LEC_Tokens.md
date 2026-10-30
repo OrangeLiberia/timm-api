@@ -18,8 +18,8 @@ This method allows the agent to see their previous purchased tokens.
 
 | Environment | Base URL |
 |-------------|----------|
-| Production | `https://192.168.19.200:11003//TIMM/v1/Agent/LEC/Tokens` |
-| Dev/Test   | `https://APIDEV.Orange.com.lr//TIMM/v1/Agent/LEC/Tokens` |
+| Production | `https://192.168.19.200:11003/TIMM/v1/Agent/LEC/Tokens` |
+| Dev/Test   | `https://APIDEV.Orange.com.lr/TIMM/v1/Agent/LEC/Tokens` |
 
 ## Authentication
 
