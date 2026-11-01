@@ -34,12 +34,12 @@ Authentication is provided through query parameters:
 |---|---:|---|---|
 | `auth:user` | Yes | API authentication user | `KYCMobileValidation` |
 | `auth:pwd` | Yes | API authentication password | `********` |
-| `param:UserID` | Yes | KYC user ID for which performance is requested | `10486` |
+| `param:TIMMUserID` | Yes | KYC user ID for which performance is requested | `10486` |
 
 ## cURL Example
 
 ```bash
-curl -X GET "http://192.168.19.200:11000/TIMM/v1/CRM/Subscriber/KYC/UserPerformance?auth:user=KYCMobileValidation&auth:pwd=YOUR_PASSWORD&param:UserID=10486"
+curl -X GET "http://192.168.19.200:11000/TIMM/v1/CRM/Subscriber/KYC/UserPerformance?auth:user=KYCMobileValidation&auth:pwd=YOUR_PASSWORD&param:TIMMUserID=10486"
 ```
 
 ### Using an environment variable
@@ -87,7 +87,7 @@ curl -X GET "http://192.168.19.200:11000/TIMM/v1/CRM/Subscriber/KYC/UserPerforma
 For:
 
 ```text
-UserID = 10486
+TIMMUserID = 10486
 ```
 
 The API returned:
@@ -110,7 +110,7 @@ This means that user `10486` currently has **59 items in the queue** and **0 val
 ## JavaScript Example
 
 ```javascript
-const userId = 10486;
+const TIMMuserId = 10486;
 const username = "KYCMobileValidation";
 const password = process.env.TIMM_AUTH_PWD;
 
