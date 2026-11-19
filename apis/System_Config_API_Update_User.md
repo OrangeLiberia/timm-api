@@ -8,7 +8,7 @@ Updates only supplied fields for the user identified by `param.username` in the 
 
 | Setting | Value |
 |---|---|
-| HTTP verb | `POST` |
+| HTTP verb | `PUT` |
 | Full route | `/TIMM/v1/System/Config/API/Update/User` |
 | Action database | `TIMM_API` |
 | Procedure | `Config.UpdateUser` |
